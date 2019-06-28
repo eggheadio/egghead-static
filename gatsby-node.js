@@ -1,33 +1,8 @@
 const path = require('path')
-const crypto = require('crypto')
+
 const _ = require('lodash')
 const paginate = require('gatsby-awesome-pagination')
 const PAGINATION_OFFSET = 7
-const lessons = require('./data/lessons.json')
-
-exports.sourceNodes = async (
-  { actions: { createNode }, createNodeId },
-  { plugins, ...options },
-) => {
-  const packageLessons = lesson => {
-    const nodeContent = JSON.stringify(lesson)
-    const nodeContentDigest = crypto
-      .createHash('md5')
-      .update(nodeContent)
-      .digest('hex')
-    const node = {
-      ...lesson,
-      id: createNodeId(lesson.slug),
-      content: nodeContent,
-      internal: {
-        type: 'Lesson',
-        contentDigest: nodeContentDigest,
-      },
-    }
-    createNode(node)
-  }
-  lessons.map(packageLessons)
-}
 
 const createPosts = (createPage, createRedirect, edges) => {
   edges.forEach(({ node }, i) => {
@@ -109,6 +84,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       alias: {
+        'react-dom': '@hot-loader/react-dom',
         $components: path.resolve(__dirname, 'src/components'),
       },
     },
@@ -203,7 +179,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: 'banner',
       node,
-      banner: node.frontmatter.banner,
+      value: node.frontmatter.banner,
     })
 
     createNodeField({

@@ -34,6 +34,14 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-transformer-egghead-resources`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/data`,
+        name: 'resources',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -51,7 +59,6 @@ module.exports = {
             options: {
               backgroundColor: '#fafafa',
               maxWidth: 1035,
-              sizeByPixelDensity: true,
             },
           },
         ],
@@ -74,12 +81,12 @@ module.exports = {
         display: 'standalone',
         icons: [
           {
-            src: '/favicons/android-chrome-192x192.png',
+            src: '/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/favicons/android-chrome-512x512.png',
+            src: '/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },
@@ -114,8 +121,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
                 })
               })
             },

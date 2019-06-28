@@ -2,9 +2,11 @@
 
 This is based on Robin Wieruch's https://github.com/rwieruch/gatsby-mdx-blog-starter-project
 
-Lot's of nice pieces are also borrowed from Jason Lengstorf https://github.com/jlengstorf/lengstorf.com
+Lots of nice pieces are also borrowed from Jason Lengstorf https://github.com/jlengstorf/lengstorf.com
 
 A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://github.com/mdx-js/mdx).
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/eggheadio/gatsby-starter-egghead-blog)
 
 ## Features
 
@@ -25,14 +27,14 @@ A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://g
 
 - `git clone git@github.com:eggheadio/gatsby-starter-egghead-blog.git`
 - `cd gatsby-starter-egghead-blog`
-- `npm install`
-- `npm run develop`
+- `yarn`
+- `gatsby develop`
 - visit http://localhost:8000
 
 ## Setup via Gatsby CLI
 
 - `gatsby new gatsby-starter-egghead-blog git@github.com:eggheadio/gatsby-starter-egghead-blog.git`
 - `cd gatsby-starter-egghead-blog`
-- `npm install`
+- `yarn`
 - `gatsby develop`
 - visit http://localhost:8000
