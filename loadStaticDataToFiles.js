@@ -31,7 +31,7 @@ async function run(type) {
   )
 
   fs.writeFile(
-    `${type}.json`,
+    `./data/${type}.json`,
     JSON.stringify(resources, null, 2),
     'utf8',
     () => {},

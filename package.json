@@ -69,6 +69,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "refresh": "node loadStaticDataToFiles",
     "develop": "gatsby clean && gatsby develop",
     "start": "serve public/",
     "now-build": "npm run build"
