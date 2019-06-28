@@ -7,7 +7,7 @@ async function onCreateNode(
 ) {
   const { createNode, createParentChildLink } = actions
 
-  function transformObject(obj, id, type) {
+  function transformObject(obj, id) {
     const jsonNode = {
       ...obj,
       id,
@@ -37,16 +37,9 @@ async function onCreateNode(
       transformObject(
         obj,
         obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> JSON`),
-        getType({ node, object: obj, isArray: true }),
       )
     })
-  } else if (_.isPlainObject(parsedContent)) {
-    transformObject(
-      parsedContent,
-      parsedContent.id ? parsedContent.id : createNodeId(`${node.id} >>> JSON`),
-      getType({ node, object: parsedContent, isArray: false }),
-    )
-  }
+  } 
 }
 
 exports.onCreateNode = onCreateNode
