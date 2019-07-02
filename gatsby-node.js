@@ -33,8 +33,8 @@ const createPosts = (createPage, createRedirect, edges) => {
   })
 }
 
-exports.createPages = ({ actions, graphql }) =>
-  graphql(`
+exports.createPages = async ({ actions, graphql }) => {
+  await graphql(`
     query {
       allMdx(
         filter: { frontmatter: { published: { ne: false } } }
@@ -78,6 +78,75 @@ exports.createPages = ({ actions, graphql }) =>
       categories: [],
     })
   })
+
+  const { data: lessons } = await graphql(`
+    query {
+      allLesson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  const { data } = await graphql(`
+    query {
+      allPodcast {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+      allLesson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+      allCourse {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  data.allLesson.edges.forEach(({ node: lesson }) => {
+    actions.createPage({
+      path: `/lessons/${lesson.slug}`,
+      component: path.resolve(`./src/templates/lesson.js`),
+      context: {
+        slug: lesson.slug,
+      },
+    })
+  })
+
+  data.allPodcast.edges.forEach(({ node: podcast }) => {
+    actions.createPage({
+      path: `/podcasts/${podcast.slug}`,
+      component: path.resolve(`./src/templates/podcast.js`),
+      context: {
+        slug: podcast.slug,
+      },
+    })
+  })
+
+  data.allCourse.edges.forEach(({ node: course }) => {
+    actions.createPage({
+      path: `/courses/${course.slug}`,
+      component: path.resolve(`./src/templates/course.js`),
+      context: {
+        slug: course.slug,
+      },
+    })
+  })
+}
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({

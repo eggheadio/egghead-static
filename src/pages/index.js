@@ -7,6 +7,7 @@ import Link from 'components/Link'
 import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
+import Player from '../components/Player'
 
 const Hero = () => {
   const theme = useTheme()
@@ -64,6 +65,12 @@ export default function Index({ data: { site, allMdx } }) {
           padding-bottom: 0;
         `}
       >
+        <div
+          css={{
+            height: '480px',
+            width: '720px',
+          }}
+        ></div>
         {allMdx.edges.map(({ node: post }) => (
           <div
             key={post.id}

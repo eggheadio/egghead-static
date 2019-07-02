@@ -22,8 +22,6 @@ async function onCreateNode(
     createParentChildLink({ parent: node, child: jsonNode })
   }
 
-  
-
   // We only care about JSON content.
   if (node.internal.mediaType !== `application/json`) {
     return
@@ -39,7 +37,7 @@ async function onCreateNode(
         obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> JSON`),
       )
     })
-  } 
+  }
 }
 
 exports.onCreateNode = onCreateNode

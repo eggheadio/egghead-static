@@ -2573,6 +2573,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+clappr@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/clappr/-/clappr-0.3.6.tgz#2eefe676eddd11d0c557965534f536d2b61120f3"
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
