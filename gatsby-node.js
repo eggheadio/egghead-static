@@ -148,8 +148,16 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /bitmovin-player/,
+          use: loaders.null(),
+        },
+      ],
+    },
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       alias: {

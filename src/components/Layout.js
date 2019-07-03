@@ -128,6 +128,9 @@ const getGlobalStyles = theme => {
         border-radius: 5px;
       }
     }
+    .bmpui-ui-watermark {
+      display: none;
+    }
   `
 }
 
@@ -148,12 +151,9 @@ export default ({
 
   const [themeName, setTheme] = useState(initializeTheme)
 
-  useEffect(
-    () => {
-      localStorage.setItem('theme', themeName)
-    },
-    [themeName],
-  )
+  useEffect(() => {
+    localStorage.setItem('theme', themeName)
+  }, [themeName])
 
   const toggleTheme = name => setTheme(name)
   const theme = {

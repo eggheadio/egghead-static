@@ -11,7 +11,6 @@
     "@hot-loader/react-dom": "16.8.6",
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
-    "clappr": "^0.3.6",
     "core-js": "^3.1.4",
     "dotenv": "^8.0.0",
     "dotenv-parse-variables": "^0.2.0",
@@ -42,6 +41,7 @@
     "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.2.0",
+    "load-script": "^1.0.0",
     "polished": "^3.4.1",
     "prism-react-renderer": "^0.1.6",
     "prism-themes": "^1.1.0",
@@ -71,7 +71,7 @@
   "scripts": {
     "build": "gatsby build",
     "refresh": "node loadStaticDataToFiles",
-    "develop": "gatsby clean && gatsby develop",
+    "develop": "gatsby develop",
     "start": "serve public/",
     "now-build": "npm run build"
   }
