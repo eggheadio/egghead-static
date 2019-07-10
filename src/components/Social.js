@@ -1,21 +1,21 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import Link from './Link'
-import { useTheme } from './Theming'
-import { css } from '@emotion/core'
 import config from '../../config/website'
 
 export const Twitter = ({ url = `${config.twitter}` }) => {
-  const theme = useTheme()
   return (
     <Link
       to={url}
-      css={css`
-        color: ${theme.colors.text};
-        margin-left: 10px;
-        :hover {
-          color: ${theme.colors.primary};
-        }
-      `}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: 'text',
+        marginLeft: '10px',
+        ':hover': {
+          color: 'primary',
+        },
+      }}
       aria-label="Visit my Twitter"
     >
       <svg
@@ -35,17 +35,18 @@ export const Twitter = ({ url = `${config.twitter}` }) => {
 }
 
 export const LinkedIn = ({ url = `${config.linkedin}` }) => {
-  const theme = useTheme()
   return (
     <Link
       to={url}
-      css={css`
-        margin-left: 10px;
-        color: ${theme.colors.text};
-        :hover {
-          color: ${theme.colors.primary};
-        }
-      `}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: 'text',
+        marginLeft: '10px',
+        ':hover': {
+          color: 'primary',
+        },
+      }}
       aria-label="Visit my LinkedIn"
     >
       <svg
@@ -64,17 +65,18 @@ export const LinkedIn = ({ url = `${config.linkedin}` }) => {
 }
 
 export const GitHub = ({ url = `${config.github}` }) => {
-  const theme = useTheme()
   return (
     <Link
       to={url}
-      css={css`
-        margin-left: 10px;
-        color: ${theme.colors.text};
-        :hover {
-          color: ${theme.colors.primary};
-        }
-      `}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: 'text',
+        marginLeft: '10px',
+        ':hover': {
+          color: 'primary',
+        },
+      }}
       aria-label="Visit my GitHub"
     >
       <svg
