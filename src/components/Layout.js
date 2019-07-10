@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
@@ -15,13 +15,6 @@ export default ({
   noFooter,
   noSubscribeForm,
 }) => {
-  const initializeTheme = () => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'default'
-    } else {
-      return 'default'
-    }
-  }
   const {
     description: siteDescription,
     keywords: siteKeywords,

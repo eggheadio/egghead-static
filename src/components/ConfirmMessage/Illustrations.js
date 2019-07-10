@@ -1,7 +1,8 @@
-import React from 'react'
 import { css, keyframes } from '@emotion/core'
 import { fonts } from '../../lib/typography'
-// import { useTheme } from '../Theming'
+
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
 // PleaseConfirmIllustration
 const PaperRollOut = keyframes`
@@ -74,8 +75,7 @@ const NotificationFadeIn = keyframes`
 }
 `
 // SVG
-export const PleaseConfirmIllustration = props => {
-  // const theme = useTheme()
+export const PleaseConfirmIllustration = () => {
   return (
     <div
       css={css`
@@ -163,10 +163,12 @@ export const PleaseConfirmIllustration = props => {
             height="16"
             x="26.385"
             y="35.077"
-            fill="pink"
             fillRule="nonzero"
             rx="4.308"
             className="button"
+            sx={{
+              fill: theme => theme.colors.primary,
+            }}
           />
           <path
             className="text-button"
@@ -262,14 +264,12 @@ to, 100% {
 `
 const GrassGrow = keyframes`
 from, 0% {
-
 transform: translate(-35px, 20px);
 }
 40% {
   transform: translate(-35px, 20px);
 }
 to, 100% {
-
   transform: translate(-35px, 0);
 }
 `
@@ -283,7 +283,6 @@ to, 100% {
 `
 // SVG
 export const ThankYouIllustration = () => {
-  // const theme = useTheme()
   return (
     <div
       css={css`
@@ -350,10 +349,10 @@ export const ThankYouIllustration = () => {
             />
             <path
               className="grass"
-              fill="green"
-              css={css`
-                transform: translate(-35px, 0);
-              `}
+              sx={{
+                transform: 'translate(-35px, 0)',
+                fill: theme => theme.colors.green,
+              }}
               d="M112.181818,95.2 L112.181818,96.9 C112.181818,92.2055796 108.518693,88.4 104,88.4 L104,93.5 C104,98.1944204 107.663125,102 112.181818,102 C114.785762,102 117.283055,100.92536 119.124321,99.0124892 C120.965587,97.0996181 122,94.5052082 122,91.8 L122,85 C116.577568,85 112.181818,89.5666956 112.181818,95.2 Z"
             />
             <rect
@@ -361,8 +360,10 @@ export const ThankYouIllustration = () => {
               width="100"
               height="48"
               y="9"
-              fill="pink"
               rx="5"
+              sx={{
+                fill: theme => theme.colors.primary,
+              }}
             />
             <rect
               className="sheet"

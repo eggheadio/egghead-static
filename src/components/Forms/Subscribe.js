@@ -1,8 +1,8 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { css } from '@emotion/core'
-import { withTheme } from '../Theming'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { rhythm } from '../../lib/typography'
 import { bpMaxSM } from '../../lib/breakpoints'
 import Message from '../ConfirmMessage/Message'
@@ -67,17 +67,16 @@ class SignUp extends React.Component {
 
   render() {
     const { submitted, response, errorMessage } = this.state
-    const { theme } = this.props
     const successful = response && response.status === 'success'
 
     return (
       <div>
         {!successful && (
           <h2
-            css={css`
-              margin-bottom: ${rhythm(1)};
-              margin-top: 0;
-            `}
+            sx={{
+              mb: 2,
+              mt: 0,
+            }}
           >
             Join the Newsletter
           </h2>
@@ -94,51 +93,29 @@ class SignUp extends React.Component {
             <>
               {!successful && (
                 <Form
-                  css={css`
-                    display: flex;
-                    align-items: flex-end;
-                    button {
-                      margin-left: 10px;
-                    }
-                    .field-error {
-                      display: block;
-                      color: ${theme.colors.red};
-                      font-size: 80%;
-                    }
-                    input,
-                    label {
-                      width: 100%;
-                    }
-                    ${bpMaxSM} {
-                      flex-direction: column;
-                      align-items: flex-start;
-                      width: auto;
-                      label,
-                      input {
-                        margin: 5px 0 0 0 !important;
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                      }
-                      button {
-                        margin: 20px 0 0 0;
-                      }
-                    }
-                  `}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: ['column', 'row'],
+                    alignItems: ['flex-start', 'flex-end'],
+                  }}
                 >
                   <label htmlFor="first_name">
                     <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-end',
+                      }}
                     >
                       First Name
                       <ErrorMessage
                         name="first_name"
                         component="span"
-                        className="field-error"
+                        sx={{
+                          color: theme => theme.colors.red,
+                          display: 'block',
+                          fontSize: '80%',
+                        }}
                       />
                     </div>
                     <Field
@@ -149,24 +126,19 @@ class SignUp extends React.Component {
                       type="text"
                     />
                   </label>
-                  <label
-                    htmlFor="email"
-                    css={css`
-                      margin-left: 10px;
-                    `}
-                  >
+                  <label htmlFor="email" sx={{ marginLeft: '10px' }}>
                     <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-end',
+                      }}
                     >
                       Email
                       <ErrorMessage
                         name="email_address"
                         component="span"
-                        className="field-error"
+                        sx={{ color: theme => theme.colors.red }}
                       />
                     </div>
                     <Field
@@ -187,8 +159,9 @@ class SignUp extends React.Component {
                   </button>
                 </Form>
               )}
-              {submitted &&
-                !isSubmitting && <PostSubmissionMessage response={response} />}
+              {submitted && !isSubmitting && (
+                <PostSubmissionMessage response={response} />
+              )}
               {errorMessage && <div>{errorMessage}</div>}
             </>
           )}
@@ -198,4 +171,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default withTheme(SignUp)
+export default SignUp

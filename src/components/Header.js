@@ -1,8 +1,7 @@
-import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import { css } from '@emotion/core'
 /** @jsx jsx */
 import { jsx, useColorMode } from 'theme-ui'
+import { PleaseConfirmIllustration } from './ConfirmMessage/Illustrations'
 
 import Container from './Container'
 import Button from './Button'
@@ -10,45 +9,37 @@ import Button from './Button'
 const Header = ({ siteTitle }) => {
   const [colorMode, setColorMode] = useColorMode()
   return (
-    <header
-      sx={{
-        width: '100%',
-      }}
-    >
-      <Button>primary</Button>
-      <br />
-      <br />
-      <Button secondary>secondary</Button>
+    <header>
       <Container noVerticalPadding>
         <nav
-          sx={css`
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          `}
+          sx={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
         >
           <Link
             to="/"
             aria-label="go to homepage"
-            sx={css`
-              color: white;
-              &:hover {
-                color: white;
-                text-decoration: none;
-              }
-            `}
+            sx={{
+              color: theme => theme.colors.text,
+              '&:hover': {
+                color: theme => theme.colors.primary,
+                textDecoration: 'none',
+              },
+            }}
           >
             {siteTitle}
           </Link>
           <div>
-            <button
+            <Button
               onClick={e => {
                 setColorMode(colorMode === 'default' ? 'dark' : 'default')
               }}
             >
-              Toggle {colorMode === 'default' ? 'Dark' : 'default'}
-            </button>
+              {colorMode === 'default' ? 'Dark' : 'Light'}
+            </Button>
           </div>
         </nav>
       </Container>

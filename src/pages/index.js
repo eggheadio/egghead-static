@@ -57,7 +57,6 @@ export default function Index({ data: { site, allMdx } }) {
         <Link to="/blog" aria-label="Visit blog page">
           View all articles
         </Link>
-        <hr />
       </Container>
     </Layout>
   )

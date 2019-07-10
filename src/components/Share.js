@@ -1,40 +1,39 @@
-import React from 'react'
-import { css } from '@emotion/core'
-import { useTheme } from './Theming'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
 import { TwitterShareButton, FacebookShareButton } from 'react-share'
 
 const Share = ({ url, title, twitterHandle }) => {
-  const theme = useTheme()
   return (
     <div
-      css={css`
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        div {
-          margin-right: 20px;
-          cursor: pointer;
-          :hover {
-            color: ${theme.colors.primary};
-          }
-        }
-        span {
-          margin-right: 20px;
-          font-size: 70%;
-          text-transform: uppercase;
-          line-height: 2.5;
-          opacity: 0.7;
-        }
-      `}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+      }}
     >
       <div
-        css={css`
-          flex-grow: 1;
-          border-top: 1px solid ${theme.colors.gray};
-        `}
+        sx={{
+          flexGrow: 1,
+          borderTop: theme => `1px solid ${theme.colors.gray}`,
+          mr: '20px',
+          cursor: 'pointer',
+          ':hover': {
+            color: theme => theme.colors.primary,
+          },
+        }}
       />
-      <span>Share article</span>
+      <span
+        sx={{
+          mr: '20px',
+          fontSize: '70%',
+          textTransform: 'uppercase',
+          lineHeight: 2.5,
+          opacity: 0.7,
+        }}
+      >
+        Share article
+      </span>
       <TwitterShareButton
         url={url}
         quote={title}
@@ -46,9 +45,7 @@ const Share = ({ url, title, twitterHandle }) => {
         url={url}
         quote={title}
         via={twitterHandle.split('@').join('')}
-        css={css`
-          cursor: pointer;
-        `}
+        sx={{ cursor: 'pointer' }}
       >
         Facebook
       </FacebookShareButton>
