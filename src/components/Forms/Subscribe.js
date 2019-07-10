@@ -3,8 +3,6 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { rhythm } from '../../lib/typography'
-import { bpMaxSM } from '../../lib/breakpoints'
 import Message from '../ConfirmMessage/Message'
 import { PleaseConfirmIllustration } from '../ConfirmMessage/Illustrations'
 

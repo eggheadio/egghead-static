@@ -1,7 +1,6 @@
 import { Link, StaticQuery, graphql } from 'gatsby'
 /** @jsx jsx */
 import { jsx, useColorMode } from 'theme-ui'
-import { PleaseConfirmIllustration } from './ConfirmMessage/Illustrations'
 
 import Container from './Container'
 import Button from './Button'

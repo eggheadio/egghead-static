@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx, useColorMode } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
@@ -16,17 +17,12 @@ export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout site={site}>
       <Container
-        css={css`
-          padding-bottom: 0;
-        `}
+        sx={{
+          pb: 0,
+        }}
       >
         {allMdx.edges.map(({ node: post }) => (
-          <div
-            key={post.id}
-            css={css`
-              margin-bottom: 40px;
-            `}
-          >
+          <div key={post.id} sx={{ mb: '40px' }}>
             <h2
               css={css({
                 marginBottom: rhythm(0.3),
