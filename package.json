@@ -5,7 +5,6 @@
   "author": "egghead.io <support@egghead.io> (https://egghead.io)",
   "repository": "https://github.com/eggheadio/gatsby-starter-egghead-blog",
   "dependencies": {
-    "@callstack/react-theme-provider": "^3.0.0",
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
     "@hot-loader/react-dom": "16.8.6",
