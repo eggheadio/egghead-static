@@ -14,16 +14,14 @@ const Share = ({ url, title, twitterHandle }) => {
     >
       <div
         sx={{
+          height: '1px',
           flexGrow: 1,
-          borderTop: theme => `1px solid ${theme.colors.gray}`,
+          background: theme => theme.colors.black,
+          opacity: 0.2,
           mr: '20px',
-          cursor: 'pointer',
-          ':hover': {
-            color: theme => theme.colors.primary,
-          },
         }}
       />
-      <span
+      <div
         sx={{
           mr: '20px',
           fontSize: '70%',
@@ -33,7 +31,7 @@ const Share = ({ url, title, twitterHandle }) => {
         }}
       >
         Share article
-      </span>
+      </div>
       <TwitterShareButton
         url={url}
         quote={title}
@@ -41,14 +39,20 @@ const Share = ({ url, title, twitterHandle }) => {
       >
         Twitter
       </TwitterShareButton>
-      <FacebookShareButton
-        url={url}
-        quote={title}
-        via={twitterHandle.split('@').join('')}
-        sx={{ cursor: 'pointer' }}
+      <div
+        sx={{
+          ml: '20px',
+        }}
       >
-        Facebook
-      </FacebookShareButton>
+        <FacebookShareButton
+          url={url}
+          quote={title}
+          via={twitterHandle.split('@').join('')}
+          sx={{ cursor: 'pointer' }}
+        >
+          Facebook
+        </FacebookShareButton>
+      </div>
     </div>
   )
 }
