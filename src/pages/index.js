@@ -4,50 +4,8 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import Layout from 'components/Layout'
 import Link from 'components/Link'
-import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
-
-const Hero = () => {
-  const theme = useTheme()
-  return (
-    <section
-      css={css`
-        color: ${theme.colors.white};
-        width: 100%;
-        background: ${theme.colors.primary};
-        padding: 20px 0 30px 0;
-        display: flex;
-      `}
-    >
-      <Container
-        css={css`
-          display: flex;
-          flex-direction: column;
-        `}
-      >
-        <h1
-          css={css`
-            color: ${theme.colors.white};
-            position: relative;
-            z-index: 5;
-            line-height: 1.5;
-            margin: 0;
-            max-width: ${rhythm(15)};
-          `}
-        >
-          Your blog says the things you want to say.
-        </h1>
-      </Container>
-      <div
-        css={css`
-          height: 150px;
-          overflow: hidden;
-        `}
-      />
-    </section>
-  )
-}
 
 const Description = styled.p`
   margin-bottom: 10px;
@@ -55,21 +13,13 @@ const Description = styled.p`
 `
 
 export default function Index({ data: { site, allMdx } }) {
-  const theme = useTheme()
   return (
     <Layout site={site}>
-      <Hero />
       <Container
         css={css`
           padding-bottom: 0;
         `}
       >
-        <div
-          css={{
-            height: '480px',
-            width: '720px',
-          }}
-        ></div>
         {allMdx.edges.map(({ node: post }) => (
           <div
             key={post.id}
@@ -82,7 +32,7 @@ export default function Index({ data: { site, allMdx } }) {
                 marginBottom: rhythm(0.3),
                 transition: 'all 150ms ease',
                 ':hover': {
-                  color: theme.colors.primary,
+                  color: 'pink',
                 },
               })}
             >

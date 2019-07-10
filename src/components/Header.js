@@ -1,26 +1,27 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
-import { useTheme } from './Theming'
-import ThemeToggler from './ThemeToggler'
+/** @jsx jsx */
+import { jsx, useColorMode } from 'theme-ui'
 
 import Container from './Container'
+import Button from './Button'
 
 const Header = ({ siteTitle }) => {
-  const theme = useTheme()
+  const [colorMode, setColorMode] = useColorMode()
   return (
     <header
-      css={css`
-        width: 100%;
-        flex-shrink: 0;
-        background: none;
-        padding: 20px 0;
-        background: ${theme.colors.headerBg};
-      `}
+      sx={{
+        width: '100%',
+      }}
     >
+      <Button>primary</Button>
+      <br />
+      <br />
+      <Button secondary>secondary</Button>
       <Container noVerticalPadding>
         <nav
-          css={css`
+          sx={css`
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -30,7 +31,7 @@ const Header = ({ siteTitle }) => {
           <Link
             to="/"
             aria-label="go to homepage"
-            css={css`
+            sx={css`
               color: white;
               &:hover {
                 color: white;
@@ -40,38 +41,14 @@ const Header = ({ siteTitle }) => {
           >
             {siteTitle}
           </Link>
-          <div
-            css={css`
-              font-size: 16px;
-              line-height: 1.25;
-              display: flex;
-              align-items: center;
-              a {
-                text-decoration: none;
-                & + a {
-                  margin-left: 32px;
-                }
-              }
-              .active {
-                display: none;
-                visibility: hidden;
-              }
-            `}
-          >
-            {/*
-          <Link
-            to="/blog"
-            activeClassName="active"
-            aria-label="View blog page"
-          >
-            Blog
-          </Link>
-          */}
-            <ThemeToggler
-              css={{}}
-              toggleTheme={theme.toggleTheme}
-              themeName={theme.themeName}
-            />
+          <div>
+            <button
+              onClick={e => {
+                setColorMode(colorMode === 'default' ? 'dark' : 'default')
+              }}
+            >
+              Toggle {colorMode === 'default' ? 'Dark' : 'default'}
+            </button>
           </div>
         </nav>
       </Container>

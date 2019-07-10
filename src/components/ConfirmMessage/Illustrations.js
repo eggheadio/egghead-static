@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, keyframes } from '@emotion/core'
 import { fonts } from '../../lib/typography'
-import { useTheme } from '../Theming'
+// import { useTheme } from '../Theming'
 
 // PleaseConfirmIllustration
 const PaperRollOut = keyframes`
@@ -74,8 +74,8 @@ const NotificationFadeIn = keyframes`
 }
 `
 // SVG
-export const PleaseConfirmIllustration = () => {
-  const theme = useTheme()
+export const PleaseConfirmIllustration = props => {
+  // const theme = useTheme()
   return (
     <div
       css={css`
@@ -163,7 +163,7 @@ export const PleaseConfirmIllustration = () => {
             height="16"
             x="26.385"
             y="35.077"
-            fill={theme.colors.primary}
+            fill="pink"
             fillRule="nonzero"
             rx="4.308"
             className="button"
@@ -283,7 +283,7 @@ to, 100% {
 `
 // SVG
 export const ThankYouIllustration = () => {
-  const theme = useTheme()
+  // const theme = useTheme()
   return (
     <div
       css={css`
@@ -350,7 +350,7 @@ export const ThankYouIllustration = () => {
             />
             <path
               className="grass"
-              fill={theme.colors.green}
+              fill="green"
               css={css`
                 transform: translate(-35px, 0);
               `}
@@ -361,7 +361,7 @@ export const ThankYouIllustration = () => {
               width="100"
               height="48"
               y="9"
-              fill={theme.colors.primary}
+              fill="pink"
               rx="5"
             />
             <rect
