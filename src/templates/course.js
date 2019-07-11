@@ -1,15 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Container from 'components/Container'
 import Layout from '../components/Layout'
 
 const Course = ({ data: { course, site } }) => {
   return (
-    <Layout site={site} noFooter>
-      <Container noVerticalPadding>
+    <Layout site={site}>
+      <div>
         <h1>{course.title}</h1>
         <img src={course.square_cover_url} alt={course.title} />
-      </Container>
+      </div>
     </Layout>
   )
 }
