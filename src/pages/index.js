@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, useColorMode } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
