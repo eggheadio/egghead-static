@@ -7,7 +7,12 @@ import Link from 'components/Link'
 export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout site={site}>
-      <h1>Welcome to egghead-static development 🤖</h1>
+      <h1>
+        Welcome to egghead-static development{' '}
+        <span role="img" aria-label="robot">
+          🤖
+        </span>
+      </h1>
     </Layout>
   )
 }
