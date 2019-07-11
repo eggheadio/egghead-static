@@ -2,7 +2,6 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
-import Link from 'components/Link'
 
 export default function Index({ data: { site, allMdx } }) {
   return (

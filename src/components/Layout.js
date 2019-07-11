@@ -1,10 +1,12 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { jsx, Header, Main, Footer, Container } from 'theme-ui'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import mdxComponents from './mdx'
 import config from '../../config/website'
+import Link from 'components/Link'
+import eggo from '../../assets/eggo.svg'
 
 export default ({ site, frontmatter = {}, children }) => {
   const {
@@ -25,6 +27,8 @@ export default ({ site, frontmatter = {}, children }) => {
       sx={{
         width: '100%',
         minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <Helmet
@@ -35,9 +39,25 @@ export default ({ site, frontmatter = {}, children }) => {
         ]}
       >
         <html lang="en" />
-        <noscript>This site runs best with JavaScript enabled.</noscript>
       </Helmet>
-      <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+      <Header sx={{ borderBottom: '1px solid gray', mb: 3 }}>
+        <Container>
+          <Link to="/">
+            <img src={eggo} alt="" />
+          </Link>
+        </Container>
+      </Header>
+      <Main
+        sx={{
+          flexGrow: 1,
+          color: 'primary',
+        }}
+      >
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+      </Main>
+      <Footer sx={{ borderTop: '1px solid gray' }}>
+        <Container>@eggheadio</Container>
+      </Footer>
     </div>
   )
 }
