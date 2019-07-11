@@ -1,11 +1,8 @@
-const colors = {
+export default {
   black: '#131415',
   white: '#fff',
   gray: '#fafafa',
   red: '#E74C3C',
   blue: '#5348ff',
   green: '#29B573',
-  yellow: 'yellow',
 }
-
-export default colors

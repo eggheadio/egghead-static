@@ -1,20 +1,15 @@
-import React, { Fragment } from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
-import { Global, css } from '@emotion/core'
+import { Global } from '@emotion/core'
 import mdxComponents from './mdx'
-import Header from './Header'
 import config from '../../config/website'
-import Footer from '../components/Footer'
+import resetStyles from '../lib/reset'
 
-export default ({
-  site,
-  frontmatter = {},
-  children,
-  noFooter,
-  noSubscribeForm,
-}) => {
+export default ({ site, frontmatter = {}, children }) => {
   const {
     description: siteDescription,
     keywords: siteKeywords,
@@ -30,17 +25,12 @@ export default ({
 
   return (
     <Fragment>
-      {/*
-        <Global styles={reset()} />
-        <Global styles={getGlobalStyles(theme)} />
-        */}
+      <Global styles={resetStyles} />
       <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          min-height: 100vh;
-        `}
+        sx={{
+          width: '100%',
+          minHeight: '100vh',
+        }}
       >
         <Helmet
           title={config.siteTitle}
@@ -52,16 +42,9 @@ export default ({
           <html lang="en" />
           <noscript>This site runs best with JavaScript enabled.</noscript>
         </Helmet>
-        <Header />
         <MDXProvider components={mdxComponents}>
           <Fragment>{children}</Fragment>
         </MDXProvider>
-        {noFooter || (
-          <Footer
-            author={site.siteMetadata.author.name}
-            noSubscribeForm={noSubscribeForm}
-          />
-        )}
       </div>
     </Fragment>
   )

@@ -1,15 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Container from 'components/Container'
 import Layout from '../components/Layout'
 
 const Podcast = ({ data: { podcast, site } }) => {
   return (
-    <Layout site={site} noFooter>
-      <Container noVerticalPadding>
+    <Layout site={site}>
+      <div>
         <h1>{podcast.title}</h1>
         <img src={podcast.image_url} alt={podcast.title} />
-      </Container>
+      </div>
     </Layout>
   )
 }

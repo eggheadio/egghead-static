@@ -1,155 +1,106 @@
-import { css } from '@emotion/core'
-import typography, { fonts } from '../lib/typography'
+import { css } from 'theme-ui'
 
-const resetStyles = () => {
-  return css`
-    form {
-      margin: 0;
-    }
-    ul, ol {
-      list-style-position: inside;
-      margin-left: 0;
-      font-size: ${typography.baseFontSize};
-    }
-    *,
-    *:before,
-    *:after {
-      box-sizing: inherit;
-    }
-    html,
-    body {
-      font-family: ${fonts.regular}, sans-serif;
-      font-style: normal;
-      padding: 0;
-      margin: 0;
-    }
-    html {
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
-      overflow-y: auto !important;
-      box-sizing: border-box;
-      -ms-overflow-style: scrollbar;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a {
-      transition: 100ms;
-      text-decoration: none;
-    }
+const resetStyles = css`
+  * {
+    box-sizing: border-box;
+  }
 
-    a:not([href]):not([tabindex]) {
-      color: inherit;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        color: inherit;
-        text-decoration: none;
-      }
-      &:focus {
-        outline: 0;
-      }
-    }
+  html {
+    overflow-y: scroll;
+  }
 
-    blockquote {
-      padding-left: 1rem !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      font-style: italic;
-      p {
-        line-height: 1.3 !important;
-      }
-    }
-    [tabindex='-1']:focus {
-      outline: none !important;
-    }
-    pre {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      overflow: auto;
-    }
-    figure {
-      margin: 0 0 1rem 0;
-    img {
-      vertical-align: middle;
-    }
-    [role='button'] {
-      cursor: pointer;
-    }
-    a,
-    area,
-    button,
-    [role='button'],
-    input,
-    label,
-    select,
-    summary,
-    textarea {
-      touch-action: manipulation;
-    }
-    table {
-      border-collapse: collapse;
-    }
-    caption {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-      text-align: center;
-      caption-side: bottom;
-    }
-    th {
-      text-align: left;
-    }
-    label {
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-    button:focus {
-      outline: 1px dotted;
-      outline: 5px auto -webkit-focus-ring-color;
-    }
-    input,
-    button,
-    select,
-    textarea {
-      line-height: inherit;
-    }
-    input[type='date'],
-    input[type='time'],
-    input[type='datetime-local'],
-    input[type='month'] {
-      -webkit-appearance: listbox;
-    }
-    textarea {
-      resize: vertical;
-    }
-    fieldset {
-      min-width: 0;
-      padding: 0;
-      margin: 0;
-      border: 0;
-    }
-    legend {
-      display: block;
-      width: 100%;
-      padding: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      line-height: inherit;
-    }
-    input[type='search'] {
-      -webkit-appearance: none;
-    }
-    output {
-      display: inline-block;
-    }
-    svg:not(:root) {
-      overflow: hidden;
-      vertical-align: middle;
-    }
-    [hidden] {
-      display: none !important;
-    }
-  `
-}
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+`
 export default resetStyles
