@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
 import Player from '../components/ReactPlayer'
 import get from 'lodash/get'
@@ -7,7 +8,7 @@ import get from 'lodash/get'
 const Lesson = ({ data: { lesson, site } }) => {
   return (
     <Layout site={site}>
-      <div>
+      <Container>
         <h1>{lesson.title}</h1>
         {lesson.media_urls && (
           <Player
@@ -15,7 +16,7 @@ const Lesson = ({ data: { lesson, site } }) => {
             dash_url={get(lesson, 'media_urls.dash_url')}
           />
         )}
-      </div>
+      </Container>
     </Layout>
   )
 }

@@ -38,9 +38,7 @@ function pageLayout({ site, frontmatter = {}, children }) {
           </Link>
         </Container>
       </Header>
-      <Main>
-        <Container>{children}</Container>
-      </Main>
+      <Main>{children}</Main>
       <Footer>
         <Container>@eggheadio</Container>
       </Footer>
