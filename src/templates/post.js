@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import SEO from 'components/SEO'
 import Layout from '../components/Layout'
 import config from '../../config/website'
@@ -35,7 +35,7 @@ export default function Post({
             </div>
           )}
           <br />
-          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
       </article>
     </Layout>
@@ -62,9 +62,7 @@ export const pageQuery = graphql`
         slug
         keywords
       }
-      code {
-        body
-      }
+      body
     }
   }
 `

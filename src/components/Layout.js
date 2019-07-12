@@ -1,14 +1,12 @@
 /** @jsx jsx */
-import { jsx, Header, Main, Footer, Container } from 'theme-ui'
+import { jsx, Layout, Header, Main, Footer, Container } from 'theme-ui'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { MDXProvider } from '@mdx-js/react'
-import mdxComponents from './mdx'
 import config from '../../config/website'
 import Link from 'components/Link'
 import eggo from '../../assets/eggo.svg'
 
-export default ({ site, frontmatter = {}, children }) => {
+function pageLayout({ site, frontmatter = {}, children }) {
   const {
     description: siteDescription,
     keywords: siteKeywords,
@@ -23,14 +21,7 @@ export default ({ site, frontmatter = {}, children }) => {
   const description = frontmatterDescription || siteDescription
 
   return (
-    <div
-      sx={{
-        width: '100%',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
+    <Layout>
       <Helmet
         title={config.siteTitle}
         meta={[
@@ -48,14 +39,16 @@ export default ({ site, frontmatter = {}, children }) => {
         </Container>
       </Header>
       <Main>
-        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+        <Container>{children}</Container>
       </Main>
       <Footer>
         <Container>@eggheadio</Container>
       </Footer>
-    </div>
+    </Layout>
   )
 }
+
+export default pageLayout
 
 export const pageQuery = graphql`
   fragment site on Site {

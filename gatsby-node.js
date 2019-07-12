@@ -55,9 +55,7 @@ exports.createPages = async ({ actions, graphql }) => {
               slug
               date
             }
-            code {
-              scope
-            }
+            body
           }
         }
       }
