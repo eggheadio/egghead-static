@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Layout, Header, Main, Footer, Container } from 'theme-ui'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Link from 'components/Link'
 import eggo from '../../assets/eggo.svg'
@@ -30,9 +29,7 @@ export const pageQuery = graphql`
     siteMetadata {
       title
       description
-      author {
-        name
-      }
+      author
       keywords
     }
   }
