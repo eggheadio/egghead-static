@@ -144,9 +144,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-typography`,
-    },
     'gatsby-plugin-offline',
   ],
 }
