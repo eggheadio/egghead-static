@@ -1,17 +1,19 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
 
 export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout site={site}>
-      <h1>
-        Welcome to egghead-static development{' '}
-        <span role="img" aria-label="robot">
-          🤖
-        </span>
-      </h1>
+      <Container>
+        <h1>
+          Welcome to egghead-static development{' '}
+          <span role="img" aria-label="robot">
+            🤖
+          </span>
+        </h1>
+      </Container>
     </Layout>
   )
 }

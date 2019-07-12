@@ -48,9 +48,7 @@ export default ({ site, frontmatter = {}, children }) => {
         </Container>
       </Header>
       <Main>
-        <Container>
-          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-        </Container>
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </Main>
       <Footer>
         <Container>@eggheadio</Container>
