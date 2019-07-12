@@ -2,35 +2,12 @@
 import { jsx, Layout, Header, Main, Footer, Container } from 'theme-ui'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import config from '../../config/website'
 import Link from 'components/Link'
 import eggo from '../../assets/eggo.svg'
 
-function pageLayout({ site, frontmatter = {}, children }) {
-  const {
-    description: siteDescription,
-    keywords: siteKeywords,
-  } = site.siteMetadata
-
-  const {
-    keywords: frontmatterKeywords,
-    description: frontmatterDescription,
-  } = frontmatter
-
-  const keywords = (frontmatterKeywords || siteKeywords).join(', ')
-  const description = frontmatterDescription || siteDescription
-
+function pageLayout({ frontmatter = {}, children }) {
   return (
     <Layout>
-      <Helmet
-        title={config.siteTitle}
-        meta={[
-          { name: 'description', content: description },
-          { name: 'keywords', content: keywords },
-        ]}
-      >
-        <html lang="en" />
-      </Helmet>
       <Header>
         <Container>
           <Link to="/">
