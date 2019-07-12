@@ -1,5 +1,4 @@
 export default {
-  initialColorMode: 'default',
   useCustomProperties: true,
   breakpoints: ['540px', '768px', '992px', '1200px', '1920px'],
   fonts: {
