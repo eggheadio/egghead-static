@@ -40,22 +40,19 @@ export default ({ site, frontmatter = {}, children }) => {
       >
         <html lang="en" />
       </Helmet>
-      <Header sx={{ borderBottom: '1px solid gray', mb: 3 }}>
+      <Header>
         <Container>
           <Link to="/">
             <img src={eggo} alt="" />
           </Link>
         </Container>
       </Header>
-      <Main
-        sx={{
-          flexGrow: 1,
-          color: 'primary',
-        }}
-      >
-        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+      <Main>
+        <Container>
+          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+        </Container>
       </Main>
-      <Footer sx={{ borderTop: '1px solid gray' }}>
+      <Footer>
         <Container>@eggheadio</Container>
       </Footer>
     </div>
