@@ -2,7 +2,7 @@ const path = require('path')
 const _ = require('lodash')
 
 const paginate = require('gatsby-awesome-pagination')
-const PAGINATION_OFFSET = 7
+const PAGINATION_OFFSET = 10
 
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
