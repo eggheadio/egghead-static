@@ -21,7 +21,7 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md', '.markdown'],
         defaultLayouts: {
-          default: require.resolve('./src/components/Layout.js'),
+          default: require.resolve('./src/components/layout.js'),
         },
         gatsbyRemarkPlugins: [
           {
