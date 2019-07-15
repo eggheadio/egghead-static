@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx, Flex, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Link from '../components/Link'
+import Layout from 'components/Layout'
+import Link from 'components/Link'
 
 const Courses = ({
   data: { site, allCourse },
