@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import React from 'react'
 import { jsx, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 
 export default function Index({ data: { site } }) {
   return (

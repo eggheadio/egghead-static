@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, Layout, Header, Main, Footer, Container } from 'theme-ui'
+import React from 'react'
+import { Layout, Header, Main, Footer, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Link from 'components/Link'
 import eggo from '../../assets/eggo.svg'
