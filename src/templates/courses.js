@@ -6,7 +6,7 @@ import Link from '../components/Link'
 
 const Courses = ({
   data: { site, allCourse },
-  pageContext: { pagination, categories },
+  pageContext: { pagination },
 }) => {
   const { page, nextPagePath, previousPagePath } = pagination
   const { totalCount } = allCourse
@@ -14,8 +14,6 @@ const Courses = ({
   const courses = page
     .map(id => allCourse.edges.find(edge => edge.node.id === id))
     .filter(course => course !== undefined)
-
-  console.log('courses: ', courses || 'und')
 
   return (
     <Layout site={site}>

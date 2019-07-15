@@ -25,20 +25,12 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             slug
+            id
           }
         }
       }
     }
   `)
-
-  const courseEdges = _.get(data.allCourse, 'edges')
-  createPaginatedPages(
-    actions.createPage,
-    courseEdges,
-    'src/templates/courses.js',
-    '/courses',
-    [],
-  )
 
   data.allLesson.edges.forEach(({ node: lesson }) => {
     actions.createPage({
@@ -69,6 +61,14 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   })
+
+  createPaginatedPages(
+    actions.createPage,
+    data.allCourse.edges,
+    'src/templates/courses.js',
+    '/courses',
+    [],
+  )
 }
 
 const createPaginatedPages = (
@@ -78,7 +78,7 @@ const createPaginatedPages = (
   pathPrefix,
   context,
 ) => {
-  const pages = edges.reduce((acc, value, index) => {
+  const pages = edges.reduce((acc, value, index = 0) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET)
 
     if (!acc[pageIndex]) {
