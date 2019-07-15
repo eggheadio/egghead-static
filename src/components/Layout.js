@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout, Header, Main, Footer, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Link from 'components/Link'
+import Link from 'components/link'
 import eggo from '../../assets/eggo.svg'
 
 function pageLayout({ frontmatter = {}, children }) {
