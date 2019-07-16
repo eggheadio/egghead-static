@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Link from 'components/link'
 import eggo from '../../assets/eggo.svg'
 
-export default ({ frontmatter = {}, children }) => (
+const pageLayout = ({ frontmatter = {}, children }) => (
   <Layout>
     <Header>
       <Container>
@@ -19,6 +19,8 @@ export default ({ frontmatter = {}, children }) => (
     </Footer>
   </Layout>
 )
+
+export default pageLayout
 
 export const pageQuery = graphql`
   fragment site on Site {
