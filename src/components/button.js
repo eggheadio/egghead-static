@@ -2,13 +2,19 @@
 import { jsx } from 'theme-ui'
 import Link from 'components/link'
 
-const Button = ({ to, children, type = 'default', ...restProps }) => {
+const Button = ({
+  to,
+  children,
+  kind = 'default',
+  type = 'button',
+  ...restProps
+}) => {
   return to ? (
-    <Link to={to} sx={{ variant: `buttons.${type}` }} {...restProps}>
+    <Link to={to} sx={{ variant: `buttons.${kind}` }} {...restProps}>
       {children}
     </Link>
   ) : (
-    <button sx={{ variant: `buttons.${type}` }} {...restProps}>
+    <button type={type} sx={{ variant: `buttons.${kind}` }} {...restProps}>
       {children}
     </button>
   )
