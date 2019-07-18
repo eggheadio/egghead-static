@@ -3,6 +3,7 @@ import { jsx, Flex, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Layout from 'components/layout'
 import Link from 'components/link'
+import formatDuration from 'lib/formatDuration'
 
 const Courses = ({
   data: { site, allCourse },
@@ -18,77 +19,71 @@ const Courses = ({
   return (
     <Layout site={site}>
       <Container>
-        <h4 sx={{ margin: '0 0 30px 0' }}>there are {totalCount} courses:</h4>
-        {courses.map(({ node: course }) => (
-          <div
-            key={course.id}
-            sx={{
-              padding: '20px',
-              border: '1px solid gray',
-              margin: 0,
-              ':not(:first-of-type)': {
-                marginTop: '30px',
-              },
-            }}
-          >
-            <Flex>
-              <div sx={{ flexShrink: 0 }}>
-                <a href={course.path}>
+        <h1>{totalCount} Courses</h1>
+        <ul sx={{ variant: 'lists.reset', mt: 4 }}>
+          {courses.map(({ node: course }) => (
+            <li key={course.id} sx={{ mb: 4 }}>
+              <Flex sx={{ flexDirection: ['column', 'row'] }}>
+                <Link to={course.path} tabindex="-1">
                   <img
                     src={course.square_cover_256_url}
-                    alt=""
+                    alt={course.title}
                     sx={{
-                      width: '100px',
-                      height: '100px',
-                      display: 'block',
-                      margin: 0,
+                      maxWidth: '80px',
                     }}
                   />
-                </a>
-              </div>
-              <div sx={{ marginLeft: '30px' }}>
-                <h4 sx={{ margin: 0 }}>
-                  <a href={course.path}>{course.slug}</a>
-                </h4>
-                <div sx={{ display: 'flex', marginTop: '20px' }}>
-                  <div>{course.duration}</div>
-                  <div>
-                    <img
-                      src={course.instructor.avatar_64_url}
-                      alt=""
-                      sx={{
-                        width: '32px',
-                        height: '32px',
-                        display: 'block',
-                        borderRadius: '50%',
-                        margin: 0,
-                      }}
-                    />
-                  </div>
-                  <div>{course.instructor.full_name}</div>
-                  <div>{course.is_pro_content && <b>PRO</b>}</div>
-                </div>
-              </div>
-            </Flex>
-          </div>
-        ))}
+                </Link>
+
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    ml: [0, 3],
+                  }}
+                >
+                  <h3 sx={{ mb: 2 }}>
+                    <Link to={course.path} sx={{ fontSize: 3 }}>
+                      {course.title}
+                    </Link>
+                  </h3>
+                  <Flex sx={{ div: { mr: 3 }, alignItems: 'center' }}>
+                    <Flex sx={{ alignItems: 'center' }}>
+                      <img
+                        src={course.instructor.avatar_64_url}
+                        alt={course.instructor.full_name}
+                        sx={{
+                          width: '32px',
+                          height: '32px',
+                          display: 'block',
+                          borderRadius: '50%',
+                          m: 0,
+                          mr: 2,
+                        }}
+                      />
+                      {course.instructor.full_name}
+                    </Flex>
+                    <div>{formatDuration(course.duration)}</div>
+                    <div>{course.is_pro_content && <b>PRO</b>}</div>
+                  </Flex>
+                </Flex>
+              </Flex>
+            </li>
+          ))}
+        </ul>
         <div
           sx={{
-            marginTop: '50px',
-            display: 'flex',
-            justifyContent: 'space-between',
+            mt: 50,
           }}
         >
-          {previousPagePath ? (
-            <Link to={previousPagePath} aria-label="View previous page">
-              ← Previous Page
-            </Link>
-          ) : (
-            <div />
-          )}
           {nextPagePath && (
             <Link to={nextPagePath} aria-label="View next page">
               Next Page →
+            </Link>
+          )}
+          <br />
+          {previousPagePath && (
+            <Link to={previousPagePath} aria-label="View previous page">
+              ← Previous Page
             </Link>
           )}
         </div>
@@ -117,6 +112,7 @@ export const pageQuery = graphql`
           is_pro_content
           slug
           square_cover_256_url
+          title
         }
       }
       totalCount

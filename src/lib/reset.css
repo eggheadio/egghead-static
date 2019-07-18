@@ -11,6 +11,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 html,
 body,
 div,

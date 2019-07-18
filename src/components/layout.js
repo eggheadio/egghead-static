@@ -1,17 +1,12 @@
 import React from 'react'
 import { Layout, Header, Main, Footer, Container } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Link from 'components/link'
-import eggo from '../../assets/eggo.svg'
+import Navigation from 'components/navigation'
 
-const pageLayout = ({ frontmatter = {}, children }) => (
+const pageLayout = ({ children }) => (
   <Layout>
     <Header>
-      <Container>
-        <Link to="/">
-          <img src={eggo} alt="" />
-        </Link>
-      </Container>
+      <Navigation />
     </Header>
     <Main>{children}</Main>
     <Footer>
