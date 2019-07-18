@@ -11,6 +11,7 @@ export default {
   fontWeights: {
     body: 400,
     heading: 500,
+    bold: 600,
   },
   lineHeights: {
     body: 1.5,
@@ -25,6 +26,21 @@ export default {
     reset: {
       fontWeight: 'heading',
       lineHeight: 'heading',
+    },
+  },
+  text: {
+    reset: {
+      '& > p': {
+        my: 3,
+      },
+      code: {
+        backgroundColor: '#f1f1f1',
+        p: 1,
+      },
+      ul: {
+        listStyle: 'inherit',
+        ml: 4,
+      },
     },
   },
   buttons: {
@@ -74,6 +90,12 @@ export default {
       lineHeight: 'body',
       ul: {
         variant: 'lists.reset',
+      },
+      i: {
+        fontStyle: 'italic',
+      },
+      b: {
+        fontWeight: 'bold',
       },
       a: {
         color: 'primary',

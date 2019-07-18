@@ -55,7 +55,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.allCourse.edges.forEach(({ node: course }) => {
     actions.createPage({
       path: `/courses/${course.slug}`,
-      component: path.resolve(`./src/templates/course.js`),
+      component: path.resolve(`./src/templates/course/index.js`),
       context: {
         slug: course.slug,
       },

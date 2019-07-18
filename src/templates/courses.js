@@ -26,7 +26,7 @@ const Courses = ({
               <Flex sx={{ flexDirection: ['column', 'row'] }}>
                 <Link to={course.path} tabindex="-1">
                   <img
-                    src={course.square_cover_256_url}
+                    src={course.square_cover_128_url}
                     alt={course.title}
                     sx={{
                       maxWidth: 80,
@@ -113,7 +113,7 @@ export const pageQuery = graphql`
           }
           is_pro_content
           slug
-          square_cover_256_url
+          square_cover_128_url
           title
         }
       }
