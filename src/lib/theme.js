@@ -53,4 +53,40 @@ export default {
       },
     },
   },
+  buttons: {
+    base: {
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 3,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderColor: 'primary',
+      transition: '150ms',
+      fontSize: 2,
+      fontWeight: 'heading',
+      textDecoration: 'none',
+      lineHeight: '1',
+      p: [2, 2, 3],
+      cursor: 'pointer',
+    },
+    default: {
+      variant: 'buttons.base',
+      color: 'primary',
+      bg: 'white',
+      ':hover': {
+        bg: 'primary',
+        color: 'white',
+      },
+    },
+    primary: {
+      variant: 'buttons.base',
+      color: 'white',
+      bg: 'primary',
+      ':hover': {
+        bg: 'white',
+        color: 'primary',
+      },
+    },
+  },
 }
