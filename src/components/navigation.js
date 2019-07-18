@@ -25,7 +25,6 @@ function Navigation() {
             height: '100%',
             display: 'flex',
             alignItems: 'center',
-            variant: 'lists.reset',
           },
           li: { ml: 4 },
         }}

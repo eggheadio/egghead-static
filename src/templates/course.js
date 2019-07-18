@@ -1,19 +1,20 @@
 /** @jsx jsx */
 import React from 'react'
 import { graphql } from 'gatsby'
-import { jsx, Container } from 'theme-ui'
+import { jsx, Container, Flex } from 'theme-ui'
 import Layout from 'components/layout'
 
 const Course = ({ data: { course, site } }) => {
   return (
     <Layout site={site}>
       <Container>
-        <h1>{course.title}</h1>
         <img
-          sx={{ maxWidth: 200 }}
-          src={course.square_cover_url}
+          sx={{ maxWidth: 200, height: 200 }}
+          src={course.square_cover_480_url}
           alt={course.title}
         />
+        <br />
+        <h1>{course.title}</h1>
       </Container>
     </Layout>
   )
@@ -27,7 +28,7 @@ export const query = graphql`
     }
     course(slug: { eq: $slug }) {
       title
-      square_cover_url
+      square_cover_480_url
     }
   }
 `

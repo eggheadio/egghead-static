@@ -72,6 +72,9 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body',
+      ul: {
+        variant: 'lists.reset',
+      },
       a: {
         color: 'primary',
       },

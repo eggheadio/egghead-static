@@ -20,7 +20,7 @@ const Courses = ({
     <Layout site={site}>
       <Container>
         <h1>{totalCount} Courses</h1>
-        <ul sx={{ variant: 'lists.reset', mt: 4 }}>
+        <ul sx={{ mt: 4 }}>
           {courses.map(({ node: course }) => (
             <li key={course.id} sx={{ mb: 4 }}>
               <Flex sx={{ flexDirection: ['column', 'row'] }}>
@@ -29,7 +29,9 @@ const Courses = ({
                     src={course.square_cover_256_url}
                     alt={course.title}
                     sx={{
-                      maxWidth: '80px',
+                      maxWidth: 80,
+                      minWidth: 80,
+                      height: 80,
                     }}
                   />
                 </Link>
