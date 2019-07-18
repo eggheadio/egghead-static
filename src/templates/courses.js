@@ -24,7 +24,7 @@ const Courses = ({
           {courses.map(({ node: course }) => (
             <li key={course.id} sx={{ mb: 4 }}>
               <Flex sx={{ flexDirection: ['column', 'row'] }}>
-                <Link to={course.path} tabindex="-1">
+                <Link to={course.path} tabIndex="-1">
                   <img
                     src={course.square_cover_128_url}
                     alt={course.title}
