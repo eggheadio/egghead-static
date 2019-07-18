@@ -31,9 +31,9 @@ const Course = ({ data: { course, site } }) => {
         <div sx={{ my: 2 }}>
           <b>{Math.ceil(course.rating_out_of_5)} / 5</b>,{' '}
           <b>{course.rating_count}</b> people rated, published{' '}
-          <date>
+          <div>
             <b>{course.published_at}</b>
-          </date>
+          </div>
         </div>
         <article>
           <Markdown sx={{ mt: 7, variant: 'text.reset' }}>
