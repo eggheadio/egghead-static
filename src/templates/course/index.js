@@ -43,11 +43,12 @@ const Course = ({ data: { course, site } }) => {
         <br />
         <h3>Lessons</h3>
         <ol sx={{ ml: 4 }}>
-          {course.lessons.map(lesson => (
-            <li key={lesson.id} sx={{ mt: 2, h4: { fontSize: 2 } }}>
-              <h4>{lesson.title}</h4>
-            </li>
-          ))}
+          {course.lessons &&
+            course.lessons.map(lesson => (
+              <li key={lesson.id} sx={{ mt: 2, h4: { fontSize: 2 } }}>
+                <h4>{lesson.title}</h4>
+              </li>
+            ))}
         </ol>
       </Container>
     </Layout>
