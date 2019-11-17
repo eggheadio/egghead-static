@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: 'learn',
   siteMetadata: {
     title: `egghead.io`,
     description: `Static version of egghead.io`,
@@ -57,6 +58,12 @@ module.exports = {
             type: 'image/png',
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        siteId: process.env.FATHOM_SITE_ID,
       },
     },
     // `gatsby-plugin-offline`
