@@ -70,8 +70,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby clean && gatsby build --prefix-paths && yarn move",
-    "move": "cd public && mkdir learn | mv * learn",
+    "build": "gatsby build --prefix-paths && yarn move",
+    "move": "cd public && rm -rf learn && mkdir learn | mv * learn",
     "refresh": "node loadStaticDataToFiles",
     "develop": "gatsby develop",
     "start": "serve public/",
