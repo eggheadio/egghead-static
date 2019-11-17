@@ -1,9 +1,6 @@
 const path = require('path')
 const _ = require('lodash')
 
-const paginate = require('gatsby-awesome-pagination')
-const PAGINATION_OFFSET = 10
-
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query {
@@ -58,54 +55,6 @@ exports.createPages = async ({ actions, graphql }) => {
       component: path.resolve(`./src/templates/course/index.js`),
       context: {
         slug: course.slug,
-      },
-    })
-  })
-
-  createPaginatedPages(
-    actions.createPage,
-    data.allCourse.edges,
-    'src/templates/courses.js',
-    '/courses',
-    [],
-  )
-}
-
-const createPaginatedPages = (
-  createPage,
-  edges,
-  templatePath,
-  pathPrefix,
-  context,
-) => {
-  const pages = edges.reduce((acc, value, index = 0) => {
-    const pageIndex = Math.floor(index / PAGINATION_OFFSET)
-
-    if (!acc[pageIndex]) {
-      acc[pageIndex] = []
-    }
-
-    acc[pageIndex].push(value.node.id)
-
-    return acc
-  }, [])
-
-  pages.forEach((page, index) => {
-    const nextPagePath = `${pathPrefix}/${index + 1}`
-    const previousPagePath =
-      index === 1 ? pathPrefix : `${pathPrefix}/${index - 1}`
-
-    createPage({
-      path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(templatePath),
-      context: {
-        pagination: {
-          page,
-          nextPagePath: index === pages.length - 1 ? null : nextPagePath,
-          previousPagePath: index === 0 ? null : previousPagePath,
-          pathPrefix,
-        },
-        ...context,
       },
     })
   })

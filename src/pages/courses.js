@@ -5,16 +5,10 @@ import Layout from 'components/layout'
 import Link from 'components/link'
 import formatDuration from 'lib/formatDuration'
 
-const Courses = ({
-  data: { site, allCourse },
-  pageContext: { pagination },
-}) => {
-  const { page, nextPagePath, previousPagePath } = pagination
+const Courses = ({ data: { site, allCourse } }) => {
   const { totalCount } = allCourse
 
-  const courses = page
-    .map(id => allCourse.edges.find(edge => edge.node.id === id))
-    .filter(course => course !== undefined)
+  const courses = allCourse.edges.filter(course => course !== undefined)
 
   return (
     <Layout site={site}>
@@ -72,23 +66,6 @@ const Courses = ({
             </li>
           ))}
         </ul>
-        <div
-          sx={{
-            mt: 50,
-          }}
-        >
-          {nextPagePath && (
-            <Link to={nextPagePath} aria-label="View next page">
-              Next Page →
-            </Link>
-          )}
-          <br />
-          {previousPagePath && (
-            <Link to={previousPagePath} aria-label="View previous page">
-              ← Previous Page
-            </Link>
-          )}
-        </div>
       </Container>
     </Layout>
   )
