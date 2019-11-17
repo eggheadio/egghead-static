@@ -71,7 +71,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build --prefix-paths && yarn move",
-    "move": "cd public && rm -rf learn && mkdir learn | mv * learn",
+    "move": "cd public && rm -rf learn && mkdir learn && mv * learn",
     "refresh": "node loadStaticDataToFiles",
     "develop": "gatsby develop",
     "start": "serve public/",
