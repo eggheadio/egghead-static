@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx, Container } from 'theme-ui'
-import Logo from '../../assets/eggo.svg'
 import Link from 'components/link'
 
-function Navigation() {
+function Navigation({ children }) {
   return (
     <Container
       sx={{
@@ -29,15 +28,10 @@ function Navigation() {
           li: { ml: 4 },
         }}
       >
-        <h1>
-          <Link to="/" sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={Logo} alt="egghead.io" />
-          </Link>
-        </h1>
         <ul>
-          <li>
-            <Link to="/courses">Courses</Link>
-          </li>
+          {children.map(menuItem => {
+            return <li>{menuItem}</li>
+          })}
         </ul>
       </nav>
     </Container>
