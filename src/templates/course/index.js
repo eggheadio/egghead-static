@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import { jsx, Container, Flex } from 'theme-ui'
 import Layout from 'components/layout'
 import Markdown from 'react-markdown'
+import Link from 'components/link'
 
 const Course = ({ data: { course, site } }) => {
   return (
@@ -46,7 +47,9 @@ const Course = ({ data: { course, site } }) => {
           {course.lessons &&
             course.lessons.map(lesson => (
               <li key={lesson.id} sx={{ mt: 2, h4: { fontSize: 2 } }}>
-                <h4>{lesson.title}</h4>
+                <Link to={`/lessons/${lesson.slug}`}>
+                  <h4>{lesson.title}</h4>
+                </Link>
               </li>
             ))}
         </ol>
