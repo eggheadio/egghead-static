@@ -1,117 +1,110 @@
-import nightOwl from "@theme-ui/prism/presets/night-owl.json"
-import Inter from "./typography-theme-inter"
-import merge from "deepmerge"
-import { toTheme } from "@theme-ui/typography"
+import nightOwl from '@theme-ui/prism/presets/night-owl.json'
+import Inter from './typography-theme-inter'
+import merge from 'deepmerge'
+import { toTheme } from '@theme-ui/typography'
 
 export default merge(toTheme(Inter), {
   colors: {
-    primary: "#326AFF",
-    secondary: "#7790CC",
-    text: "hsl(0, 0%, 10%)",
-    background: "white",
-    modes: {
-      dark: {
-        primary: "#326AFF",
-        text: "hsl(255, 0%,95%)",
-        background: "hsl(0, 0%, 5%)",
-      },
-    },
+    primary: '#326AFF',
+    secondary: '#7790CC',
+    text: 'hsl(0, 0%, 10%)',
+    background: 'white',
   },
 
-  breakpoints: ["40em", "56em", "64em"],
+  breakpoints: ['40em', '56em', '64em'],
 
   fonts: {
     heading: "'Inter', sans-serif",
     body: "'Inter', sans-serif",
-    monospace: "monospace",
+    monospace: 'monospace',
   },
 
   text: {
     heading: {
-      fontFamily: "heading",
-      fontWeight: "heading",
-      lineHeight: "heading",
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      lineHeight: 'heading',
     },
   },
 
   buttons: {
     primary: {
-      bg: "text",
-      color: "background",
-      cursor: "pointer",
+      bg: 'text',
+      color: 'background',
+      cursor: 'pointer',
     },
     icon: {
-      "&:hover": {
+      '&:hover': {
         opacity: 1,
       },
-      cursor: "pointer",
+      cursor: 'pointer',
     },
   },
 
   links: {
     button: {
       p: 2,
-      bg: "primary",
-      color: "background",
-      textDecoration: "none",
-      fontFamily: "heading",
-      fontWeight: "normal",
+      bg: 'primary',
+      color: 'background',
+      textDecoration: 'none',
+      fontFamily: 'heading',
+      fontWeight: 'normal',
     },
     navlink: {
-      height: "100%",
-      color: "background",
-      textDecoration: "none",
-      display: "flex",
-      alignItems: "center",
+      height: '100%',
+      color: 'background',
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
       mr: 2,
     },
   },
 
   styles: {
     pre: {
-      overflow: "auto",
+      overflow: 'auto',
       mx: [-3, 0],
       borderRadius: [0, 3],
     },
     blockquote: {
-      fontStyle: "italic",
-      fontSize: "110%",
-      borderLeft: "2px solid",
-      borderColor: "black",
+      fontStyle: 'italic',
+      fontSize: '110%',
+      borderLeft: '2px solid',
+      borderColor: 'black',
       ml: 0,
       pl: 3,
     },
     a: {
-      color: "primary",
+      color: 'primary',
     },
 
     root: {
       button: {
-        cursor: "pointer",
-        color: "primary",
+        cursor: 'pointer',
+        color: 'primary',
       },
-      ".markdown": {
-        "p, ul": { py: 1 },
-        li: { py: "0.25rem" },
+      '.markdown': {
+        'p, ul': { py: 1 },
+        li: { py: '0.25rem' },
       },
       code: {
-        color: "text",
-        bg: "#f1f1f1",
-        p: "3px 7px",
-        fontFamily: "monospace",
-        fontSize: "90%",
+        color: 'text',
+        bg: '#f1f1f1',
+        p: '3px 7px',
+        fontFamily: 'monospace',
+        fontSize: '90%',
       },
-      "em, i": {
-        fontStyle: "italic",
+      'em, i': {
+        fontStyle: 'italic',
       },
-      color: "text",
+      color: 'text',
     },
     ul: {
       ml: 0,
     },
     code: {
       ...nightOwl,
-      fontFamily: "monospace",
+      fontFamily: 'monospace',
     },
   },
 })
