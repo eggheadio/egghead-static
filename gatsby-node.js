@@ -1,5 +1,6 @@
 const path = require('path')
 const _ = require('lodash')
+const axios = require('axios')
 
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
@@ -32,7 +33,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.allLesson.edges.forEach(({ node: lesson }) => {
     actions.createPage({
       path: `/lessons/${lesson.slug}`,
-      component: path.resolve(`./src/templates/lesson.js`),
+      component: path.resolve(`./src/templates/lesson/lesson-query.js`),
       context: {
         slug: lesson.slug,
       },
@@ -42,7 +43,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.allPodcast.edges.forEach(({ node: podcast }) => {
     actions.createPage({
       path: `/podcasts/${podcast.slug}`,
-      component: path.resolve(`./src/templates/podcast.js`),
+      component: path.resolve(`./src/templates/podcast/podcast-query.js`),
       context: {
         slug: podcast.slug,
       },
@@ -52,7 +53,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.allCourse.edges.forEach(({ node: course }) => {
     actions.createPage({
       path: `/courses/${course.slug}`,
-      component: path.resolve(`./src/templates/course/index.js`),
+      component: path.resolve(`./src/templates/course/course-query.js`),
       context: {
         slug: course.slug,
       },
@@ -72,78 +73,33 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   })
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { createNode } = actions
 
-  if (node.internal.type === `Mdx`) {
-    const parent = getNode(node.parent)
-    const titleSlugged = _.join(_.drop(parent.name.split('-'), 3), '-')
+  const todoApp = await axios(`https://egghead.io/api/v1/playlists/349783`)
+  const convertingServerlessApp = await axios(
+    `https://egghead.io/api/v1/playlists/350751`,
+  )
 
-    const slug =
-      parent.sourceInstanceName === 'legacy'
-        ? `blog/${node.frontmatter.date
-            .split('T')[0]
-            .replace(/-/g, '/')}/${titleSlugged}`
-        : node.frontmatter.slug || titleSlugged
+  const collections = [todoApp.data, convertingServerlessApp.data]
 
-    createNodeField({
-      name: 'id',
-      node,
-      value: node.id,
-    })
-
-    createNodeField({
-      name: 'published',
-      node,
-      value: node.frontmatter.published,
-    })
-
-    createNodeField({
-      name: 'title',
-      node,
-      value: node.frontmatter.title,
-    })
-
-    createNodeField({
-      name: 'description',
-      node,
-      value: node.frontmatter.description,
-    })
-
-    createNodeField({
-      name: 'slug',
-      node,
-      value: slug,
-    })
-
-    createNodeField({
-      name: 'date',
-      node,
-      value: node.frontmatter.date ? node.frontmatter.date.split(' ')[0] : '',
-    })
-
-    createNodeField({
-      name: 'banner',
-      node,
-      value: node.frontmatter.banner,
-    })
-
-    createNodeField({
-      name: 'categories',
-      node,
-      value: node.frontmatter.categories || [],
-    })
-
-    createNodeField({
-      name: 'keywords',
-      node,
-      value: node.frontmatter.keywords || [],
-    })
-
-    createNodeField({
-      name: 'redirects',
-      node,
-      value: node.frontmatter.redirects,
-    })
-  }
+  collections.forEach(collection =>
+    createNode(
+      Object.assign({}, collection, {
+        id: createNodeId(`collection-${collection.id}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: `collection`,
+          mediaType: `application/json`,
+          content: JSON.stringify(collection),
+          contentDigest: createContentDigest(collection),
+        },
+      }),
+    ),
+  )
 }

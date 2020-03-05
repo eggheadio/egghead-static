@@ -3,7 +3,7 @@ const path = require(`path`)
 
 async function onCreateNode(
   { node, actions, loadNodeContent, createNodeId, createContentDigest },
-  pluginOptions,
+  pluginOptions
 ) {
   const { createNode, createParentChildLink } = actions
 
@@ -34,7 +34,7 @@ async function onCreateNode(
     parsedContent.forEach((obj, i) => {
       transformObject(
         obj,
-        obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> JSON`),
+        obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> JSON`)
       )
     })
   }

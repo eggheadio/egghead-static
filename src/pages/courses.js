@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx, Flex, Container } from 'theme-ui'
-import { graphql } from 'gatsby'
-import Layout from 'components/layout'
-import Link from 'components/link'
-import formatDuration from 'lib/formatDuration'
+import { jsx, Container } from "theme-ui"
+import { Flex } from "@theme-ui/components"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Link from "../components/link"
+import formatDuration from "../utils/formatDuration"
 
 const Courses = ({ data: { site, allCourse } }) => {
   const { totalCount } = allCourse
@@ -11,13 +12,13 @@ const Courses = ({ data: { site, allCourse } }) => {
   const courses = allCourse.edges.filter(course => course !== undefined)
 
   return (
-    <Layout site={site}>
+    <Layout title="Courses">
       <Container>
         <h1>{totalCount} Courses</h1>
-        <ul sx={{ mt: 4 }}>
+        <ul sx={{ mt: 4, ml: 0 }}>
           {courses.map(({ node: course }) => (
-            <li key={course.id} sx={{ mb: 4 }}>
-              <Flex sx={{ flexDirection: ['column', 'row'] }}>
+            <li key={course.id} sx={{ mb: 4, listStyleType: "none" }}>
+              <Flex sx={{ flexDirection: ["column", "row"] }}>
                 <Link to={course.path} tabIndex="-1">
                   <img
                     src={course.square_cover_128_url}
@@ -32,8 +33,8 @@ const Courses = ({ data: { site, allCourse } }) => {
 
                 <Flex
                   sx={{
-                    flexDirection: 'column',
-                    justifyContent: 'center',
+                    flexDirection: "column",
+                    justifyContent: "center",
                     ml: [0, 3],
                   }}
                 >
@@ -42,16 +43,16 @@ const Courses = ({ data: { site, allCourse } }) => {
                       {course.title}
                     </Link>
                   </h3>
-                  <Flex sx={{ div: { mr: 3 }, alignItems: 'center' }}>
-                    <Flex sx={{ alignItems: 'center' }}>
+                  <Flex sx={{ div: { mr: 3 }, alignItems: "center" }}>
+                    <Flex sx={{ alignItems: "center" }}>
                       <img
                         src={course.instructor.avatar_64_url}
                         alt={course.instructor.full_name}
                         sx={{
-                          width: '32px',
-                          height: '32px',
-                          display: 'block',
-                          borderRadius: '50%',
+                          width: "32px",
+                          height: "32px",
+                          display: "block",
+                          borderRadius: "50%",
                           m: 0,
                           mr: 2,
                         }}
@@ -76,7 +77,9 @@ export default Courses
 export const pageQuery = graphql`
   query {
     site {
-      ...site
+      siteMetadata {
+        title
+      }
     }
     allCourse {
       edges {

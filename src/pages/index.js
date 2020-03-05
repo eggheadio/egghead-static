@@ -1,30 +1,14 @@
-/** @jsx jsx */
-import { jsx, Container } from 'theme-ui'
-import { graphql } from 'gatsby'
-import Layout from 'components/layout'
+import React from "react"
+import { Link } from "gatsby"
+import { Styled } from "theme-ui"
 
-export default function Index({ data: { site } }) {
-  return (
-    <Layout site={site}>
-      <Container>
-        <h1>
-          Welcome to egghead-static development{' '}
-          <span role="img" aria-label="robot">
-            🤖
-          </span>
-        </h1>
-      </Container>
-    </Layout>
-  )
-}
+import Layout from "../components/layout"
+import Image from "../components/image"
 
-export const pageQuery = graphql`
-  query {
-    site {
-      ...site
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+const IndexPage = () => (
+  <Layout title="Home">
+    <Styled.h1>🚧 egghead static</Styled.h1>
+  </Layout>
+)
+
+export default IndexPage
