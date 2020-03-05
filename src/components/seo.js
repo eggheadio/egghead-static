@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import defaultShareCard from "../images/card.png"
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
+import defaultShareCard from '../images/card.png'
 
 function SEO({ description, lang, meta, title, card }) {
   const { site } = useStaticQuery(
@@ -23,7 +23,7 @@ function SEO({ description, lang, meta, title, card }) {
           }
         }
       }
-    `
+    `,
   )
 
   const metaDescription = description || site.siteMetadata.description
@@ -54,9 +54,7 @@ function SEO({ description, lang, meta, title, card }) {
         },
         {
           name: `og:image`,
-          content: card
-            ? `https://vojta.io${card}`
-            : `https://vojta.io${defaultShareCard}`,
+          content: card ? card : `https://egghead.io/learn${defaultShareCard}`,
         },
         {
           name: `twitter:card`,
@@ -64,9 +62,7 @@ function SEO({ description, lang, meta, title, card }) {
         },
         {
           name: `twitter:image`,
-          content: card
-            ? `https://vojta.io${card}`
-            : `https://vojta.io${defaultShareCard}`,
+          content: card ? card : `https://egghead.io/learn${defaultShareCard}`,
         },
 
         {

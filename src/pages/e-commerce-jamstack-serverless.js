@@ -38,6 +38,7 @@ const IndexPage = ({ data }) => {
       <Layout
         title="Building E-commerce Products with JAMStack and Serverless"
         description={Summary}
+        card="https://res.cloudinary.com/dg3gyk0gu/image/upload/v1582127037/serverless-jamstack-e-commerce/og-image.png"
         bg="#fafafa"
       >
         <div
