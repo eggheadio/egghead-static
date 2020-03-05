@@ -1,17 +1,17 @@
-const axios = require('axios')
-const parse = require('parse-link-header')
-const fs = require('fs')
-const get = require('lodash/get')
-var pad = require('pad-number')
+const axios = require("axios")
+const parse = require("parse-link-header")
+const fs = require("fs")
+const get = require("lodash/get")
+var pad = require("pad-number")
 
-const types = ['lessons', 'series', 'podcasts']
+const types = ["lessons", "series", "podcasts"]
 
 async function getAllResources(url, type) {
   const result = await axios.get(url)
   const resources = result.data.map(resource => {
     return { ...resource, id: `${type}-${pad(resource.id, 20)}` }
   })
-  const nextUrl = get(parse(result.headers.link), 'next.url')
+  const nextUrl = get(parse(result.headers.link), "next.url")
 
   if (nextUrl) {
     console.log(`fetching more ${type} ${resources.length}`)
@@ -27,14 +27,14 @@ async function run(type) {
 
   const resources = await getAllResources(
     `https://egghead.io/api/v1/${type}?page=1&per_page=10`,
-    type,
+    type
   )
 
   fs.writeFile(
     `./data/${type}.json`,
     JSON.stringify(resources, null, 2),
-    'utf8',
-    () => {},
+    "utf8",
+    () => {}
   )
 }
 

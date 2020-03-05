@@ -1,75 +1,60 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
 module.exports = {
-  pathPrefix: 'learn',
+  pathPrefix: "learn",
   siteMetadata: {
     title: `egghead.io`,
     description: `Static version of egghead.io`,
     author: `@eggheadio`,
-    canonicalUrl: `egghead.io`,
-    keywords: [`development`],
-    image: `images/logo.png`,
   },
   plugins: [
     `gatsby-transformer-egghead-resources`,
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/data`,
-        name: 'resources',
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md', '.markdown'],
-        defaultLayouts: {
-          default: require.resolve('./src/components/layout.js'),
-        },
+        extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1380,
+              linkImagesToOriginal: false,
+            },
           },
         ],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-react-helmet',
+
+    `gatsby-plugin-theme-ui`,
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'egghead.io',
-        short_name: 'Static egghead.io',
-        description: 'Static version of egghead.io',
-        start_url: '/',
-        background_color: '#5348ff',
-        theme_color: '#5348ff',
-        display: 'standalone',
-        icons: [
-          {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
+        name: `resources`,
+        path: `${__dirname}/data`,
       },
     },
     {
-      resolve: 'gatsby-plugin-fathom',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        siteId: process.env.FATHOM_SITE_ID,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
-    // `gatsby-plugin-offline`
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#333`,
+        theme_color: `#5348ff`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }
