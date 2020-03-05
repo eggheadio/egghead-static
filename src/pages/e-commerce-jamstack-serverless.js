@@ -113,13 +113,13 @@ const IndexPage = ({ data }) => {
                 justifyContent: 'flex-start',
               }}
             >
-              <Feature image="/icons/create-accounts.svg">
+              <Feature image="/learn/images/create-accounts.svg">
                 Sign up using social or username/password combinations
               </Feature>
-              <Feature image="/icons/subscription.svg">
+              <Feature image="/learn/images/subscription.svg">
                 Pay monthly using Stripe
               </Feature>
-              <Feature image="/icons/use-offline.svg">
+              <Feature image="/learn/images/use-offline.svg">
                 Use the site offline
               </Feature>
             </div>
@@ -134,13 +134,13 @@ const IndexPage = ({ data }) => {
                 justifyContent: 'flex-start',
               }}
             >
-              <Feature image="/icons/deploy.svg">
+              <Feature image="/learn/images/deploy.svg">
                 Deploys to a CDN, close to your users
               </Feature>
-              <Feature image="/icons/static.svg">
+              <Feature image="/learn/images/static.svg">
                 Pre-renders relevant pages as static html
               </Feature>
-              <Feature image="/icons/authentication.svg">
+              <Feature image="/learn/images/authentication.svg">
                 Authenticates users to access their data using dynamic,
                 client-side apps
               </Feature>
@@ -156,11 +156,13 @@ const IndexPage = ({ data }) => {
                 justifyContent: 'flex-start',
               }}
             >
-              <Feature image="/icons/graphql.svg">Provide GraphQL APIs</Feature>
-              <Feature image="/icons/user-roles.svg">
+              <Feature image="/learn/images/graphql.svg">
+                Provide GraphQL APIs
+              </Feature>
+              <Feature image="/learn/images/user-roles.svg">
                 Implement Role Based Access Control
               </Feature>
-              <Feature image="/icons/connect-database.svg">
+              <Feature image="/learn/images/connect-database.svg">
                 Interact with serverless databases like Fauna and DynamoDB
               </Feature>
             </div>
