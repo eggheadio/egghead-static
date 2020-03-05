@@ -23,7 +23,7 @@ const Feature = ({ image, children }) => (
       justifyContent: 'center',
       padding: '1.5rem 1rem',
       borderRadius: 8,
-      fontSize: '85%',
+      fontSize: ['100%', '85%'],
     }}
   >
     <img src={image} alt={children} sx={{ mb: 2 }} />
@@ -47,6 +47,7 @@ const IndexPage = ({ data }) => {
             flexDirection: 'column',
             alignItems: 'center',
             padding: ['2rem 0.5rem', '3rem 2rem'],
+            fontSize: [1, 2],
           }}
         >
           <Illustration />
@@ -85,7 +86,7 @@ const IndexPage = ({ data }) => {
               Christopher Biscardi
             </a>
           </p>
-          <article sx={{ maxWidth: 780, padding: ['0 1.25rem', '0'] }}>
+          <article sx={{ maxWidth: 780 }}>
             <ReactMarkdown
               className="markdown"
               source={Summary}
@@ -177,7 +178,7 @@ const IndexPage = ({ data }) => {
             </p>
           </article>
         </div>
-        <article sx={{ padding: 0 }}>
+        <article sx={{ padding: 0, fontSize: [1, 2] }}>
           {collections.map(collection => (
             <Collection data={collection} key={collection.id} />
           ))}
