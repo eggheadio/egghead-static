@@ -1,14 +1,11 @@
 /** @jsx jsx */
-import React from "react"
-import { jsx, Container, Styled } from "theme-ui"
-import { useStaticQuery, graphql } from "gatsby"
-import { Box } from "@theme-ui/components"
-import SEO from "./seo"
-import Header from "./header"
-// import Footer from "./footer"
-import "../styles/reset.css"
-import "../styles/fonts/inter.css"
-import "focus-visible"
+import { jsx, Container, Styled } from 'theme-ui'
+import { useStaticQuery, graphql } from 'gatsby'
+import SEO from './seo'
+import Header from './header'
+import '../styles/reset.css'
+import '../styles/fonts/inter.css'
+import 'focus-visible'
 
 export default function Layout({ bg, ...props }) {
   const data = useStaticQuery(graphql`
@@ -34,14 +31,14 @@ export default function Layout({ bg, ...props }) {
       <Header title={data.site.siteMetadata.title} />
       <div
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          minHeight: "100vh",
-          background: bg ? bg : "inherit",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '100vh',
+          background: bg ? bg : 'inherit',
         }}
       >
-        <Container sx={{ maxWidth: "1380px", px: [2, 2, 4], pt: [2, 2, 3] }}>
+        <Container sx={{ maxWidth: '1380px', px: [2, 2, 4], pt: [2, 2, 3] }}>
           {props.children}
         </Container>
 

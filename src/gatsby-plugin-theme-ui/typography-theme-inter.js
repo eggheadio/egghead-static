@@ -1,6 +1,4 @@
-"use strict"
-
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 })
 
@@ -18,13 +16,13 @@ var _extends =
     return target
   }
 
-var _grayPercentage = require("gray-percentage")
+var _grayPercentage = require('gray-percentage')
 
 var _grayPercentage2 = _interopRequireDefault(_grayPercentage)
 
-var _typographyBreakpointConstants = require("typography-breakpoint-constants")
+var _typographyBreakpointConstants = require('typography-breakpoint-constants')
 
-var _compassVerticalRhythm = require("compass-vertical-rhythm")
+var _compassVerticalRhythm = require('compass-vertical-rhythm')
 
 var _compassVerticalRhythm2 = _interopRequireDefault(_compassVerticalRhythm)
 
@@ -47,14 +45,14 @@ function _defineProperty(obj, key, value) {
 }
 
 var theme = {
-  title: "Inter",
-  baseFontSize: "20px",
+  title: 'Inter',
+  baseFontSize: '20px',
   baseLineHeight: 1.65,
   scaleRatio: 2.45,
-  headerFontFamily: ["Inter", "sans-serif"],
-  bodyFontFamily: ["Inter", "sans-serif"],
-  headerColor: "hsla(0,0%,0%,0.9)",
-  bodyColor: "hsla(0,0%,0%,0.8)",
+  headerFontFamily: ['Inter', 'sans-serif'],
+  bodyFontFamily: ['Inter', 'sans-serif'],
+  headerColor: 'hsla(0,0%,0%,0.9)',
+  bodyColor: 'hsla(0,0%,0%,0.8)',
   headerWeight: 600,
   bodyWeight: 400,
   boldWeight: 700,
@@ -66,42 +64,42 @@ var theme = {
       rhythm = _ref.rhythm
 
     var vr = (0, _compassVerticalRhythm2.default)({
-      baseFontSize: "15px",
-      baseLineHeight: "27.35px",
+      baseFontSize: '15px',
+      baseLineHeight: '27.35px',
     })
 
     return (
       (_ref2 = {
         a: {
-          color: "#375c85",
-          textDecoration: "none",
-          boxShadow: "0 1px 0 0 currentColor",
+          color: '#375c85',
+          textDecoration: 'none',
+          boxShadow: '0 1px 0 0 currentColor',
         },
-        "a:hover,a:active": {
-          boxShadow: "none",
+        'a:hover,a:active': {
+          boxShadow: 'none',
         },
-        "h1,h2,h3,h4,h5,h6": {
+        'h1,h2,h3,h4,h5,h6': {
           marginTop: rhythm(2),
         },
         blockquote: _extends({}, scale(1 / 5), {
           color: (0, _grayPercentage2.default)(41),
           paddingLeft: rhythm(18 / 16),
           marginLeft: 0,
-          borderLeft: rhythm(6 / 16) + " solid",
+          borderLeft: rhythm(6 / 16) + ' solid',
           borderColor: (0, _grayPercentage2.default)(90),
         }),
-        "blockquote > :last-child": {
+        'blockquote > :last-child': {
           marginBottom: 0,
         },
-        "blockquote cite": _extends(
+        'blockquote cite': _extends(
           {},
           adjustFontSizeTo(options.baseFontSize),
           {
             color: options.bodyColor,
             fontWeight: options.bodyWeight,
-          }
+          },
         ),
-        "blockquote cite:before": {
+        'blockquote cite:before': {
           content: '"— "',
         },
       }),
@@ -112,18 +110,18 @@ var theme = {
           blockquote: {
             marginLeft: rhythm(-3 / 4),
             marginRight: 0,
-            borderLeft: rhythm(3 / 16) + " solid",
+            borderLeft: rhythm(3 / 16) + ' solid',
             borderColor: (0, _grayPercentage2.default)(90),
             paddingLeft: rhythm(9 / 16),
           },
-        }
+        },
       ),
       _defineProperty(
         _ref2,
         _typographyBreakpointConstants.TABLET_MEDIA_QUERY,
         {
           html: _extends({}, vr.establishBaseline()),
-        }
+        },
       ),
       _ref2
     )

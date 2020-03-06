@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
 import React from 'react'
+import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
+import Layout from '../components/layout'
 
 import ReactMarkdown from 'react-markdown'
-import Illustration from './illustration'
-import Collection from './collection'
+import Illustration from '../components/e-commerce-jamstack-serverless/illustration'
+import Collection from '../components/e-commerce-jamstack-serverless/collection'
 
 const Summary = `
 Quickly build low-maintenance products that scale with your userbase.

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import React from 'react'
 import convertTimeTo from '../../../utils/convertTimeTo'
 import Image from './image'
 import ReactMarkdown from 'react-markdown'
