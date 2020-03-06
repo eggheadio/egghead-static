@@ -2,11 +2,11 @@
 import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 import ReactMarkdown from 'react-markdown'
-import Illustration from '../components/e-commerce-jamstack-serverless/illustration'
-import Collection from '../components/e-commerce-jamstack-serverless/collection'
+import Illustration from './illustration'
+import Collection from './collection'
 
 const Summary = `
 Quickly build low-maintenance products that scale with your userbase.
@@ -105,7 +105,7 @@ const IndexPage = ({ data }) => {
               }}
             />
             <Styled.h3 sx={{ marginTop: '2rem' }}>
-              Learn how to build a product that lets your users to:
+              Learn how to build a product that lets your users:
             </Styled.h3>
             <div
               sx={{
@@ -126,7 +126,7 @@ const IndexPage = ({ data }) => {
               </Feature>
             </div>
             <Styled.h3 sx={{ marginTop: '2rem' }}>
-              Using JAMStack site that:
+              Using a JAMStack site that:
             </Styled.h3>
             <div
               sx={{
