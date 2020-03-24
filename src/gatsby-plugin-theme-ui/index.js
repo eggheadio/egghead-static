@@ -7,7 +7,7 @@ export default merge(toTheme(Inter), {
   colors: {
     primary: '#326AFF',
     secondary: '#7790CC',
-    text: 'hsl(0, 0%, 10%)',
+    text: '#10182D',
     background: 'white',
   },
 
@@ -87,6 +87,13 @@ export default merge(toTheme(Inter), {
         'p, ul': { py: 1 },
         li: { py: '0.25rem' },
       },
+      ul: {
+        ml: '1.25rem',
+
+        // listStylePosition: 'inside',
+        // listStyleType: 'inherit',
+        // ml: 0,
+      },
       code: {
         color: 'text',
         bg: '#f1f1f1',
@@ -99,9 +106,7 @@ export default merge(toTheme(Inter), {
       },
       color: 'text',
     },
-    ul: {
-      ml: 0,
-    },
+
     code: {
       ...nightOwl,
       fontFamily: 'monospace',
