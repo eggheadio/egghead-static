@@ -117,7 +117,7 @@ export default function ContextLink(props) {
                       </div>
                     }
                     placement="top"
-                    plugins={[inlinePositioning, followCursor]}
+                    plugins={[inlinePositioning]}
                     inlinePositioning={true}
                     theme="light"
                     interactive={true}
