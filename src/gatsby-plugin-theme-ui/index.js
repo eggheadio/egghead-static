@@ -1,11 +1,21 @@
 import nightOwl from '@theme-ui/prism/presets/night-owl.json'
-import Inter from './typography-theme-inter'
+import interTheme from './typography-theme-inter'
 import merge from 'deepmerge'
 import { toTheme } from '@theme-ui/typography'
 
-export default merge(toTheme(Inter), {
+interTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+  'h2,h3': {
+    marginBottom: rhythm(1 / 2),
+    marginTop: rhythm(2),
+  },
+})
+
+console.log(interTheme)
+
+export default merge(toTheme(interTheme), {
+  useBodyStyles: false,
   colors: {
-    primary: '#326AFF',
+    primary: '#1e63ff',
     secondary: '#7790CC',
     text: '#10182D',
     background: 'white',
@@ -76,9 +86,23 @@ export default merge(toTheme(Inter), {
     },
     a: {
       color: 'primary',
+      '&:hover': {
+        textDecoration: 'underline',
+        // bg: 'primary',
+        // color: 'background',
+        // textDecoration: 'none',
+        // img: {
+        //   background: 'white',
+        // },
+      },
     },
 
     root: {
+      'h2, h3': { mt: 4 },
+      '.tippy-content': {
+        p: 0,
+      },
+      fontSize: [1, 2],
       button: {
         cursor: 'pointer',
         color: 'primary',
@@ -89,10 +113,6 @@ export default merge(toTheme(Inter), {
       },
       ul: {
         ml: '1.25rem',
-
-        // listStylePosition: 'inside',
-        // listStyleType: 'inherit',
-        // ml: 0,
       },
       code: {
         color: 'text',
