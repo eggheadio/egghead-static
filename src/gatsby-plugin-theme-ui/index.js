@@ -3,17 +3,7 @@ import interTheme from './typography-theme-inter'
 import merge from 'deepmerge'
 import { toTheme } from '@theme-ui/typography'
 
-interTheme.overrideThemeStyles = ({ rhythm }, options) => ({
-  'h2,h3': {
-    marginBottom: rhythm(1 / 2),
-    marginTop: rhythm(2),
-  },
-})
-
-console.log(interTheme)
-
 export default merge(toTheme(interTheme), {
-  useBodyStyles: false,
   colors: {
     primary: '#1e63ff',
     secondary: '#7790CC',
@@ -88,12 +78,6 @@ export default merge(toTheme(interTheme), {
       color: 'primary',
       '&:hover': {
         textDecoration: 'underline',
-        // bg: 'primary',
-        // color: 'background',
-        // textDecoration: 'none',
-        // img: {
-        //   background: 'white',
-        // },
       },
     },
 
