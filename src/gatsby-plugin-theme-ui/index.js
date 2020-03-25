@@ -82,7 +82,7 @@ export default merge(toTheme(interTheme), {
     },
 
     root: {
-      'h2, h3': { mt: 4 },
+      'h2, h3': { mt: [3, 4] },
       '.tippy-content': {
         p: 0,
       },
