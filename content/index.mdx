@@ -9,11 +9,7 @@ published: true
 import Highlights from './highlights'
 import { Grid, Box } from '@theme-ui/components'
 
-## Hi there,
-
-Here's an update on what's been going on around egghead over the last week.
-
-### Recordings from our recent live events
+## Recordings from our recent live events
 
 - Tomasz Łakomy's testing-centric talk [Sleeping Better at Night](https://egghead.io/lessons/egghead-egghead-talks-sleeping-better-at-night) was the first in our egghead talks series. There are some great observations and jumping off points to further (or even start) your testing routine.
 
@@ -41,13 +37,6 @@ These streams provide a lot of opportunity to see how other developers approach 
 
 - We also have Yonatan Kra adding to his [Critical Rendering Path](https://egghead.io/playlists/critical-rendering-path-c2ec) collection that has been giving me insight into the "how" behind JS in the browser and "why" things get bogged down.
 
-<br />
-<i>
-  Cheers,
-  <br />
-  your friends at <a href="https://egghead.io">egghead.io</a>
-</i>
-
 export default ({ children, ...props }) => (
   <Grid
     sx={{
@@ -59,7 +48,7 @@ export default ({ children, ...props }) => (
     // columns={1}
     // sx={{ maxWidth: 920, mx: 'auto' }}
   >
-    <Box as="article" sx={{ 'h2:first-of-type': { mt: 3 } }} {...props}>
+    <Box as="article" {...props}>
       {children}
     </Box>
     <Box as="aside" variant="sidebar">

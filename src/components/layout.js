@@ -42,7 +42,7 @@ export default function Layout({ bg, maxWidth, ...props }) {
           sx={{
             maxWidth: maxWidth || '1380px',
             px: [2, 2, 4],
-            pt: [2, 2, 3],
+            pt: 2,
             pb: [3, 3, 4],
           }}
         >

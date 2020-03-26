@@ -11,12 +11,7 @@ export default function Post({
   ...props
 }) {
   return (
-    <Layout
-      title={title}
-      description={excerpt}
-      // maxWidth={1040}
-      {...props}
-    >
+    <Layout title={title} description={excerpt} {...props}>
       <div sx={{ a: { textDecoration: 'none' } }}>{children}</div>
       {!isEmpty(tags) && !isEmpty(keywords) && (
         <ul

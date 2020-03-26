@@ -11,19 +11,6 @@ export default merge(toTheme(interTheme), {
     background: 'white',
   },
 
-  sidebar: {
-    pt: '3rem',
-    'h1,h2,h3,h4': { mb: 1 },
-    'p, ul': { fontSize: 1 },
-    li: {
-      my: 0,
-      py: 1,
-      borderBottom: '1px solid',
-      borderColor: '#f1f1f1',
-    },
-    ul: { listStyle: 'none', ml: 0 },
-  },
-
   breakpoints: ['40em', '56em', '64em'],
 
   fonts: {
@@ -71,6 +58,19 @@ export default merge(toTheme(interTheme), {
       alignItems: 'center',
       mr: 2,
     },
+  },
+
+  sidebar: {
+    pt: '4.85rem',
+    'h1,h2,h3,h4': { mb: 1 },
+    'p, ul': { fontSize: 1 },
+    li: {
+      my: 0,
+      py: 1,
+      borderBottom: '1px solid',
+      borderColor: '#f1f1f1',
+    },
+    ul: { listStyle: 'none', ml: 0 },
   },
 
   styles: {
