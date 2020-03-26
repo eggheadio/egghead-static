@@ -62,21 +62,7 @@ export default ({ children, ...props }) => (
     <Box as="article" sx={{ 'h2:first-of-type': { mt: 3 } }} {...props}>
       {children}
     </Box>
-    <Box
-      as="aside"
-      sx={{
-        pt: '3rem',
-        'h1,h2,h3,h4': { mb: 1 },
-        'p, ul': { fontSize: 1 },
-        li: {
-          my: 0,
-          py: 1,
-          borderBottom: '1px solid',
-          borderColor: '#f1f1f1',
-        },
-        ul: { listStyle: 'none', ml: 0 },
-      }}
-    >
+    <Box as="aside" variant="sidebar">
       <Highlights />
     </Box>
   </Grid>
