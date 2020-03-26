@@ -60,6 +60,19 @@ export default merge(toTheme(interTheme), {
     },
   },
 
+  cards: {
+    resource: {
+      display: 'grid',
+      gridGap: 3,
+      gridTemplateColumns: ['100%', '2fr 8fr'],
+      h3: {
+        fontSize: 24,
+        mt: 0,
+        mb: 2,
+      },
+    },
+  },
+
   sidebar: {
     pt: '4.85rem',
     'h1,h2,h3,h4': { mb: 1 },

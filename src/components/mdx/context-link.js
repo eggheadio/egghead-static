@@ -12,7 +12,7 @@ import Markdown from 'react-markdown'
 import { FreeForever, Play } from '../icons'
 
 export default function ContextLink(props) {
-  const { allLesson, allCourse, allCollection } = useStaticQuery(
+  const { allLesson, allCourse } = useStaticQuery(
     graphql`
       {
         allLesson {
