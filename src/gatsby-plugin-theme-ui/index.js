@@ -110,7 +110,9 @@ export default merge(toTheme(interTheme), {
       },
       color: 'text',
     },
-
+    hr: {
+      opacity: 0.1,
+    },
     code: {
       ...nightOwl,
       fontFamily: 'monospace',

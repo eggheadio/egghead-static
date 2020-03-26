@@ -4,4 +4,16 @@ date: 2020-03-17
 published: false
 ---
 
-This post is in Archive.
+import { Box } from '@theme-ui/components'
+
+This is an example of archived post.
+
+export default ({ children, ...props }) => (
+  <Box
+    as="article"
+    sx={{ maxWidth: 920, mx: 'auto', 'h2:first-of-type': { mt: 3 } }}
+    {...props}
+  >
+    {children}
+  </Box>
+)

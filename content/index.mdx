@@ -6,6 +6,9 @@ keywords: ['serverless', 'testing']
 published: true
 ---
 
+import Highlights from './highlights'
+import { Grid, Box } from '@theme-ui/components'
+
 ## Hi there,
 
 Here's an update on what's been going on around egghead over the last week.
@@ -44,3 +47,37 @@ These streams provide a lot of opportunity to see how other developers approach 
   <br />
   your friends at <a href="https://egghead.i">egghead.io</a>
 </i>
+
+export default ({ children, ...props }) => (
+  <Grid
+    sx={{
+      mx: 'auto',
+      gridTemplateColumns: ['100%', '7fr 3fr'],
+      gridGap: 3,
+    }}
+    // if there's no sidebar
+    // columns={1}
+    // sx={{ maxWidth: 920, mx: 'auto' }}
+  >
+    <Box as="article" sx={{ 'h2:first-of-type': { mt: 3 } }} {...props}>
+      {children}
+    </Box>
+    <Box
+      as="aside"
+      sx={{
+        pt: '3rem',
+        'h1,h2,h3,h4': { mb: 1 },
+        'p, ul': { fontSize: 1 },
+        li: {
+          my: 0,
+          py: 1,
+          borderBottom: '1px solid',
+          borderColor: '#f1f1f1',
+        },
+        ul: { listStyle: 'none', ml: 0 },
+      }}
+    >
+      <Highlights />
+    </Box>
+  </Grid>
+)
