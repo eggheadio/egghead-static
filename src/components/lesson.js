@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui"
-import Layout from "./layout"
+import { jsx, Styled } from 'theme-ui'
+import Layout from './layout'
 
 export default function Lesson({
   children,
@@ -11,7 +11,7 @@ export default function Lesson({
 }) {
   return (
     <Layout title={title} {...props}>
-      <Styled.h1 sx={{ mt: "6px" }}>{title}</Styled.h1>
+      <Styled.h1 sx={{ mt: '6px' }}>{title}</Styled.h1>
     </Layout>
   )
 }

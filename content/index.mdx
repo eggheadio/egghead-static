@@ -1,0 +1,103 @@
+---
+title: What's new on egghead
+date: 2020-03-16 # one week before actual publish date
+tags: ['rust', 'reason', 'gatsby', 'typescript']
+keywords: ['serverless', 'testing']
+published: true
+---
+
+import Highlights from './highlights'
+import { Grid, Box } from '@theme-ui/components'
+import Resource from '../src/components/mdx/resource'
+
+## Recordings from our recent live events
+
+- Tomasz Łakomy's testing-centric talk [Sleeping Better at Night](https://egghead.io/lessons/egghead-egghead-talks-sleeping-better-at-night) was the first in our egghead talks series. There are some great observations and jumping off points to further (or even start) your testing routine.
+
+- Sean Grove & John Lindquist streaming about [Convert a Reason App to JavaScript](https://egghead.io/lessons/react-convert-an-app-built-with-reason-reasonreact-into-javascript-react)
+
+- Nick DeJesus, Ian Jones, Kevin Cunningham on a casual stream about [implementing testing in a library that uses React Hooks](https://egghead.io/lessons/react-nick-dejesus-testing-react-hooks-livestream-part-1). This was initially going to be a refactoring-centric stream, but there ended up being a lot to learn about testing.
+
+These streams provide a lot of opportunity to see how other developers approach problem solving. We don't have any other impromptu events scheduled (by definition) but can tell you about the next event in the egghead talks series.
+
+### Community Events
+
+- Next Thursday, March 26 at 9AM Pacific, Nader Dabit will be presenting his talk [Full Stack Development in the Era of Serverless Computing](https://egghead.zoom.us/webinar/register/5015847308203/WN_kfmvHNW5RSiYLpnlMW80hA). Join Nader as he demonstrates how Amazon AppSync gives you a boost in creating your own GraphQL-based API. 👉 [RSVP Here](https://egghead.zoom.us/webinar/register/5015847308203/WN_kfmvHNW5RSiYLpnlMW80hA)
+
+- The next day, Friday the 27 also at 9AM Pacific, there will be an AMA with Kent C. Dodds on our [members-only community site](https://community.egghead.io/).
+
+### Latest Content
+
+<Resource type="course" slug="write-your-first-program-with-the-rust-language">
+
+A gentle introduction to the **Rust** language. This is the first taste of the Rust stuff that Pascal has planned, and we will be keeping you up to date.
+
+</Resource>
+
+<Resource 
+  title="Build your own OpenGraph Image Generator"
+  url="https://egghead.io/playlists/building-an-opengraph-image-generation-api-with-cloudinary-netlify-functions-and-react-914e"
+  image="https://dcv19h61vib2d.cloudfront.net/thumbs/egghead-designing-opengraph-unfurls-in-figma-SyGVovf8I/egghead-designing-opengraph-unfurls-in-figma-SyGVovf8I.jpg" 
+  instructorName="Chris Biscardi" 
+  instructorImage="https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/275/medium/headshot_post_gym_dec_2018_500.png"
+>
+
+Chris Biscardi covers design, serverless functions, headless browser stuff, and more. This collection provides a great opportunity to watch, learn, and apply to your own blog.
+
+</Resource>
+
+<Resource 
+  title="Using Components in Markdown with MDX"
+  url="https://egghead.io/playlists/using-components-in-markdown-with-mdx-5de0"
+  image="https://dcv19h61vib2d.cloudfront.net/thumbs/scikit-learn-introduction-to-mdx-SyXYZcuFN/scikit-learn-introduction-to-mdx-SyXYZcuFN.jpg" 
+  instructorName="Kyle Gill" 
+  instructorImage="https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/283/medium/kylegill.jpg"
+>
+
+While you're working on your blog, if you're using Gatsby check out [Using Components in Markdown with MDX]() by Kyle Gill. There's lots to pick up here.
+
+</Resource>
+
+<Resource
+  title="TypeScript Tips & Tricks"
+  url="https://egghead.io/playlists/typescript-tips-and-tricks-20c4"
+  image="https://dcv19h61vib2d.cloudfront.net/thumbs/egghead-make-your-optional-fields-required-in-typescript-SkwpT1f78/egghead-make-your-optional-fields-required-in-typescript-SkwpT1f78.jpg"
+  instructorName="Kamran Ahmed" 
+  instructorImage="https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/361/medium/Kamranahmed.jpeg"
+>
+
+Kamran Ahmed, creator of the [Web Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap?ck_subscriber_id=360152757), has been adding lessons to his [TypeScript Tips & Tricks](https://egghead.io/playlists/typescript-tips-and-tricks-20c4) collection. He is a font of information, and we look forward to seeing more from him.
+
+</Resource>
+
+<Resource
+  title="Critical Rendering Path"
+  url="https://egghead.io/playlists/critical-rendering-path-c2ec"
+  image="https://dcv19h61vib2d.cloudfront.net/thumbs/scikit-learn-seeing-the-critical-rendering-path-in-the-browser-Hk1hH88DS/scikit-learn-seeing-the-critical-rendering-path-in-the-browser-Hk1hH88DS.jpg"
+  instructorName="Yonatan Kra" 
+  instructorImage="https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/247/medium/headShotMe.png"
+>
+
+We also have Yonatan Kra adding to his [Critical Rendering Path](https://egghead.io/playlists/critical-rendering-path-c2ec) collection that has been giving me insight into the "how" behind JS in the browser and "why" things get bogged down.
+
+</Resource>
+
+export default ({ children, ...props }) => (
+  <Grid
+    sx={{
+      mx: 'auto',
+      gridTemplateColumns: ['100%', '7fr 3fr'],
+      gridGap: 3,
+    }}
+    // if there's no sidebar
+    // columns={1}
+    // sx={{ maxWidth: 920, mx: 'auto' }}
+  >
+    <Box as="article" {...props}>
+      {children}
+    </Box>
+    <Box as="aside" variant="sidebar">
+      <Highlights />
+    </Box>
+  </Grid>
+)

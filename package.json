@@ -12,6 +12,7 @@
     "@theme-ui/components": "^0.3.1",
     "@theme-ui/prism": "^0.3.0",
     "@theme-ui/typography": "^0.3.0",
+    "@tippyjs/react": "^4.0.0-alpha.4",
     "focus-visible": "^5.0.2",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",

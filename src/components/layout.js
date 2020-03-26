@@ -7,7 +7,7 @@ import '../styles/reset.css'
 import '../styles/fonts/inter.css'
 import 'focus-visible'
 
-export default function Layout({ bg, ...props }) {
+export default function Layout({ bg, maxWidth, ...props }) {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -38,10 +38,16 @@ export default function Layout({ bg, ...props }) {
           background: bg ? bg : 'inherit',
         }}
       >
-        <Container sx={{ maxWidth: '1380px', px: [2, 2, 4], pt: [2, 2, 3] }}>
+        <Container
+          sx={{
+            maxWidth: maxWidth || '1380px',
+            px: [2, 2, 4],
+            pt: 2,
+            pb: [3, 3, 4],
+          }}
+        >
           {props.children}
         </Container>
-
         {/* <Footer /> */}
       </div>
     </Styled.root>

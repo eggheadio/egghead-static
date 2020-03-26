@@ -1,25 +1,24 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx } from 'theme-ui'
 
 const Link = ({ children, href }) => (
   <a
     href={href}
     sx={{
-      display: "flex",
-      alignItems: "center",
-      margin: ["0 0.5rem", "0 1.25rem"],
-      fontSize: 14,
+      display: 'flex',
+      alignItems: 'center',
+      margin: ['0 0.5rem', '0 1.25rem'],
+      fontSize: [12, 14],
       lineHeight: 1,
-
       svg: {
-        marginRight: "0.5rem",
-        fill: "rgba(255,255,255,0.6)",
+        marginRight: '0.5rem',
+        fill: 'rgba(255,255,255,0.6)',
         fontSize: 17,
       },
-      textDecoration: "none",
-      color: "rgba(255,255,255,0.85)",
-      ":hover": {
-        color: "white",
+      textDecoration: 'none',
+      color: 'rgba(255,255,255,0.85)',
+      ':hover': {
+        color: 'white',
       },
     }}
   >
@@ -31,38 +30,38 @@ export default function Header() {
   return (
     <nav
       sx={{
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-between",
-        background: "#141618",
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-between',
+        background: '#141618',
       }}
     >
       <div
         sx={{
           maxWidth: 1340,
-          padding: ["0 0.75rem", "0 2rem"],
-          margin: "0 auto",
-          width: "100%",
+          padding: ['0 0.75rem', '0 2rem'],
+          margin: '0 auto',
+          width: '100%',
           height: 60,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-between",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-between',
         }}
       >
         <div
           sx={{
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             fontSize: 16,
           }}
         >
           <a
             href="https://egghead.io"
             sx={{
-              display: "flex",
-              alignItems: "center",
-              marginRight: "1.5rem",
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: '1.5rem',
               svg: { width: [110, 130, 130, 136] },
             }}
           >
@@ -127,7 +126,7 @@ export default function Header() {
           </a>
           <Link
             href="https://egghead.io/browse/frameworks"
-            sx={{ color: "white" }}
+            sx={{ color: 'white' }}
           >
             <svg
               fill="white"
